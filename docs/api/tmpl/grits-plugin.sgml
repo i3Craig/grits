@@ -1,0 +1,169 @@
+<!-- ##### SECTION Title ##### -->
+GritsPlugin
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### USER_FUNCTION GritsPluginConstructor ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@prefs: 
+@Returns: 
+
+
+<!-- ##### STRUCT GritsPluginInterface ##### -->
+<para>
+
+</para>
+
+@parent_iface: 
+@name: 
+@description: 
+@get_config: 
+
+<!-- ##### STRUCT GritsPlugins ##### -->
+<para>
+
+</para>
+
+@dir: 
+@plugins: 
+@prefs: 
+
+<!-- ##### FUNCTION grits_plugin_get_config ##### -->
+<para>
+
+</para>
+
+@plugin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_plugin_get_description ##### -->
+<para>
+
+</para>
+
+@plugin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_plugin_get_name ##### -->
+<para>
+
+</para>
+
+@plugin: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_plugins_available ##### -->
+<para>
+
+</para>
+
+@plugins: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_plugins_disable ##### -->
+<para>
+
+</para>
+
+@plugins: 
+@name: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_plugins_enable ##### -->
+<para>
+
+</para>
+
+@plugins: 
+@name: 
+@viewer: 
+@prefs: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_plugins_foreach ##### -->
+<para>
+
+</para>
+
+@plugins: 
+@callback: 
+@user_data: 
+
+
+<!-- ##### FUNCTION grits_plugins_free ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION grits_plugins_load ##### -->
+<para>
+
+</para>
+
+@plugins: 
+@name: 
+@viewer: 
+@prefs: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_plugins_load_enabled ##### -->
+<para>
+
+</para>
+
+@plugins: 
+@viewer: 
+@prefs: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_plugins_new ##### -->
+<para>
+
+</para>
+
+@dir: 
+@prefs: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_plugins_unload ##### -->
+<para>
+
+</para>
+
+@plugins: 
+@name: 
+@Returns: 
+
+

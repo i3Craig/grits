@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="Grits Reference Manual" link="index.html" author="" name="grits" version="2" language="c">
+  <chapters>
+    <sub name="Core API" link="ch01.html">
+      <sub name="GritsViewer" link="GritsViewer.html"/>
+      <sub name="GritsOpenGL" link="GritsOpenGL.html"/>
+      <sub name="GritsPrefs" link="GritsPrefs.html"/>
+      <sub name="grits-util" link="grits-grits-util.html"/>
+    </sub>
+    <sub name="Data Access" link="ch02.html">
+      <sub name="grits-data" link="grits-grits-data.html"/>
+      <sub name="grits-http" link="grits-grits-http.html"/>
+      <sub name="grits-wms" link="grits-grits-wms.html"/>
+    </sub>
+    <sub name="Drawing Objects" link="ch03.html">
+      <sub name="GritsObject" link="GritsObject.html"/>
+      <sub name="GritsTile" link="GritsTile.html"/>
+      <sub name="GritsMarker" link="GritsMarker.html"/>
+      <sub name="GritsCallback" link="GritsCallback.html"/>
+    </sub>
+    <sub name="Plugins" link="ch04.html">
+      <sub name="GritsPlugin" link="grits-GritsPlugin.html"/>
+      <sub name="GritsPluginElev" link="GritsPluginElev.html"/>
+      <sub name="GritsPluginEnv" link="GritsPluginEnv.html"/>
+      <sub name="GritsPluginMap" link="GritsPluginMap.html"/>
+      <sub name="GritsPluginSat" link="GritsPluginSat.html"/>
+      <sub name="GritsPluginTest" link="GritsPluginTest.html"/>
+    </sub>
+    <sub name="Utilities" link="ch05.html">
+      <sub name="gpqueue" link="grits-gpqueue.html"/>
+      <sub name="roam" link="grits-roam.html"/>
+    </sub>
+    <sub name="Miscellaneous" link="ch06.html">
+      <sub name="grits-demo" link="grits-demo.html"/>
+    </sub>
+    <sub name="Index" link="ix01.html"/>
+  </chapters>
+  <functions>
+    <keyword type="macro" name="GRITS_LEVEL_BACKGROUND" link="GritsViewer.html#GRITS-LEVEL-BACKGROUND:CAPS"/>
+    <keyword type="macro" name="GRITS_LEVEL_HUD" link="GritsViewer.html#GRITS-LEVEL-HUD:CAPS"/>
+    <keyword type="macro" name="GRITS_LEVEL_OVERLAY" link="GritsViewer.html#GRITS-LEVEL-OVERLAY:CAPS"/>
+    <keyword type="macro" name="GRITS_LEVEL_WORLD" link="GritsViewer.html#GRITS-LEVEL-WORLD:CAPS"/>
+    <keyword type="function" name="GritsHeightFunc ()" link="GritsViewer.html#GritsHeightFunc"/>
+    <keyword type="enum" name="enum GritsProj" link="GritsViewer.html#GritsProj"/>
+    <keyword type="struct" name="struct GritsViewer" link="GritsViewer.html#GritsViewer-struct"/>
+    <keyword type="struct" name="struct GritsViewerClass" link="GritsViewer.html#GritsViewerClass"/>
+    <keyword type="function" name="grits_viewer_add ()" link="GritsViewer.html#grits-viewer-add"/>
+    <keyword type="function" name="grits_viewer_center_position ()" link="GritsViewer.html#grits-viewer-center-position"/>
+    <keyword type="function" name="grits_viewer_clear_height_func ()" link="GritsViewer.html#grits-viewer-clear-height-func"/>
+    <keyword type="function" name="grits_viewer_get_location ()" link="GritsViewer.html#grits-viewer-get-location"/>
+    <keyword type="function" name="grits_viewer_get_offline ()" link="GritsViewer.html#grits-viewer-get-offline"/>
+    <keyword type="function" name="grits_viewer_get_rotation ()" link="GritsViewer.html#grits-viewer-get-rotation"/>
+    <keyword type="function" name="grits_viewer_get_time ()" link="GritsViewer.html#grits-viewer-get-time"/>
+    <keyword type="function" name="grits_viewer_pan ()" link="GritsViewer.html#grits-viewer-pan"/>
+    <keyword type="function" name="grits_viewer_project ()" link="GritsViewer.html#grits-viewer-project"/>
+    <keyword type="function" name="grits_viewer_queue_draw ()" link="GritsViewer.html#grits-viewer-queue-draw"/>
+    <keyword type="function" name="grits_viewer_refresh ()" link="GritsViewer.html#grits-viewer-refresh"/>
+    <keyword type="function" name="grits_viewer_remove ()" link="GritsViewer.html#grits-viewer-remove"/>
+    <keyword type="function" name="grits_viewer_rotate ()" link="GritsViewer.html#grits-viewer-rotate"/>
+    <keyword type="function" name="grits_viewer_set_height_func ()" link="GritsViewer.html#grits-viewer-set-height-func"/>
+    <keyword type="function" name="grits_viewer_set_location ()" link="GritsViewer.html#grits-viewer-set-location"/>
+    <keyword type="function" name="grits_viewer_set_offline ()" link="GritsViewer.html#grits-viewer-set-offline"/>
+    <keyword type="function" name="grits_viewer_set_rotation ()" link="GritsViewer.html#grits-viewer-set-rotation"/>
+    <keyword type="function" name="grits_viewer_set_time ()" link="GritsViewer.html#grits-viewer-set-time"/>
+    <keyword type="function" name="grits_viewer_setup ()" link="GritsViewer.html#grits-viewer-setup"/>
+    <keyword type="function" name="grits_viewer_unproject ()" link="GritsViewer.html#grits-viewer-unproject"/>
+    <keyword type="function" name="grits_viewer_zoom ()" link="GritsViewer.html#grits-viewer-zoom"/>
+    <keyword type="signal" name="The &quot;location-changed&quot; signal" link="GritsViewer.html#GritsViewer-location-changed"/>
+    <keyword type="signal" name="The &quot;offline&quot; signal" link="GritsViewer.html#GritsViewer-offline"/>
+    <keyword type="signal" name="The &quot;refresh&quot; signal" link="GritsViewer.html#GritsViewer-refresh"/>
+    <keyword type="signal" name="The &quot;rotation-changed&quot; signal" link="GritsViewer.html#GritsViewer-rotation-changed"/>
+    <keyword type="signal" name="The &quot;time-changed&quot; signal" link="GritsViewer.html#GritsViewer-time-changed"/>
+    <keyword type="struct" name="struct GritsOpenGL" link="GritsOpenGL.html#GritsOpenGL-struct"/>
+    <keyword type="struct" name="struct GritsOpenGLClass" link="GritsOpenGL.html#GritsOpenGLClass"/>
+    <keyword type="function" name="grits_opengl_new ()" link="GritsOpenGL.html#grits-opengl-new"/>
+    <keyword type="struct" name="struct GritsPrefs" link="GritsPrefs.html#GritsPrefs-struct"/>
+    <keyword type="struct" name="struct GritsPrefsClass" link="GritsPrefs.html#GritsPrefsClass"/>
+    <keyword type="function" name="grits_prefs_get_boolean ()" link="GritsPrefs.html#grits-prefs-get-boolean"/>
+    <keyword type="function" name="grits_prefs_get_boolean_v ()" link="GritsPrefs.html#grits-prefs-get-boolean-v"/>
+    <keyword type="function" name="grits_prefs_get_double ()" link="GritsPrefs.html#grits-prefs-get-double"/>
+    <keyword type="function" name="grits_prefs_get_double_v ()" link="GritsPrefs.html#grits-prefs-get-double-v"/>
+    <keyword type="function" name="grits_prefs_get_integer ()" link="GritsPrefs.html#grits-prefs-get-integer"/>
+    <keyword type="function" name="grits_prefs_get_integer_v ()" link="GritsPrefs.html#grits-prefs-get-integer-v"/>
+    <keyword type="function" name="grits_prefs_get_string ()" link="GritsPrefs.html#grits-prefs-get-string"/>
+    <keyword type="function" name="grits_prefs_get_string_v ()" link="GritsPrefs.html#grits-prefs-get-string-v"/>
+    <keyword type="function" name="grits_prefs_new ()" link="GritsPrefs.html#grits-prefs-new"/>
+    <keyword type="function" name="grits_prefs_set_boolean ()" link="GritsPrefs.html#grits-prefs-set-boolean"/>
+    <keyword type="function" name="grits_prefs_set_boolean_v ()" link="GritsPrefs.html#grits-prefs-set-boolean-v"/>
+    <keyword type="function" name="grits_prefs_set_double ()" link="GritsPrefs.html#grits-prefs-set-double"/>
+    <keyword type="function" name="grits_prefs_set_double_v ()" link="GritsPrefs.html#grits-prefs-set-double-v"/>
+    <keyword type="function" name="grits_prefs_set_integer ()" link="GritsPrefs.html#grits-prefs-set-integer"/>
+    <keyword type="function" name="grits_prefs_set_integer_v ()" link="GritsPrefs.html#grits-prefs-set-integer-v"/>
+    <keyword type="function" name="grits_prefs_set_string ()" link="GritsPrefs.html#grits-prefs-set-string"/>
+    <keyword type="function" name="grits_prefs_set_string_v ()" link="GritsPrefs.html#grits-prefs-set-string-v"/>
+    <keyword type="signal" name="The &quot;pref-changed&quot; signal" link="GritsPrefs.html#GritsPrefs-pref-changed"/>
+    <keyword type="macro" name="EARTH_C" link="grits-grits-util.html#EARTH-C:CAPS"/>
+    <keyword type="macro" name="EARTH_R" link="grits-grits-util.html#EARTH-R:CAPS"/>
+    <keyword type="macro" name="EAST" link="grits-grits-util.html#EAST:CAPS"/>
+    <keyword type="macro" name="FOV_DIST" link="grits-grits-util.html#FOV-DIST:CAPS"/>
+    <keyword type="struct" name="struct GritsBounds" link="grits-grits-util.html#GritsBounds"/>
+    <keyword type="struct" name="struct GritsPoint" link="grits-grits-util.html#GritsPoint"/>
+    <keyword type="macro" name="MPPX()" link="grits-grits-util.html#MPPX:CAPS"/>
+    <keyword type="macro" name="NORTH" link="grits-grits-util.html#NORTH:CAPS"/>
+    <keyword type="macro" name="SOUTH" link="grits-grits-util.html#SOUTH:CAPS"/>
+    <keyword type="macro" name="WEST" link="grits-grits-util.html#WEST:CAPS"/>
+    <keyword type="macro" name="azim2lon()" link="grits-grits-util.html#azim2lon"/>
+    <keyword type="function" name="crossd ()" link="grits-grits-util.html#crossd"/>
+    <keyword type="function" name="crossd3 ()" link="grits-grits-util.html#crossd3"/>
+    <keyword type="macro" name="deg2rad()" link="grits-grits-util.html#deg2rad"/>
+    <keyword type="function" name="distd ()" link="grits-grits-util.html#distd"/>
+    <keyword type="macro" name="elev2rad()" link="grits-grits-util.html#elev2rad"/>
+    <keyword type="function" name="free_points ()" link="grits-grits-util.html#free-points"/>
+    <keyword type="function" name="grits_bounds_set_bounds ()" link="grits-grits-util.html#grits-bounds-set-bounds"/>
+    <keyword type="function" name="grits_point_set_lle ()" link="grits-grits-util.html#grits-point-set-lle"/>
+    <keyword type="macro" name="incl2lat()" link="grits-grits-util.html#incl2lat"/>
+    <keyword type="macro" name="lat2incl()" link="grits-grits-util.html#lat2incl"/>
+    <keyword type="function" name="lengthd ()" link="grits-grits-util.html#lengthd"/>
+    <keyword type="function" name="ll2m ()" link="grits-grits-util.html#ll2m"/>
+    <keyword type="function" name="lle2xyz ()" link="grits-grits-util.html#lle2xyz"/>
+    <keyword type="macro" name="lon2azim()" link="grits-grits-util.html#lon2azim"/>
+    <keyword type="function" name="lon_avg ()" link="grits-grits-util.html#lon-avg"/>
+    <keyword type="function" name="normd ()" link="grits-grits-util.html#normd"/>
+    <keyword type="function" name="parse_points ()" link="grits-grits-util.html#parse-points"/>
+    <keyword type="macro" name="rad2deg()" link="grits-grits-util.html#rad2deg"/>
+    <keyword type="macro" name="rad2elev()" link="grits-grits-util.html#rad2elev"/>
+    <keyword type="function" name="xyz2ll ()" link="grits-grits-util.html#xyz2ll"/>
+    <keyword type="function" name="xyz2lle ()" link="grits-grits-util.html#xyz2lle"/>
+    <keyword type="enum" name="enum GritsCacheType" link="grits-grits-data.html#GritsCacheType"/>
+    <keyword type="function" name="GritsChunkCallback ()" link="grits-grits-data.html#GritsChunkCallback"/>
+    <keyword type="function" name="fopen_p ()" link="grits-grits-data.html#fopen-p"/>
+    <keyword type="struct" name="GritsHttp" link="grits-grits-http.html#GritsHttp"/>
+    <keyword type="function" name="grits_http_available ()" link="grits-grits-http.html#grits-http-available"/>
+    <keyword type="function" name="grits_http_fetch ()" link="grits-grits-http.html#grits-http-fetch"/>
+    <keyword type="function" name="grits_http_free ()" link="grits-grits-http.html#grits-http-free"/>
+    <keyword type="function" name="grits_http_new ()" link="grits-grits-http.html#grits-http-new"/>
+    <keyword type="struct" name="GritsWms" link="grits-grits-wms.html#GritsWms"/>
+    <keyword type="function" name="grits_wms_fetch ()" link="grits-grits-wms.html#grits-wms-fetch"/>
+    <keyword type="function" name="grits_wms_free ()" link="grits-grits-wms.html#grits-wms-free"/>
+    <keyword type="function" name="grits_wms_new ()" link="grits-grits-wms.html#grits-wms-new"/>
+    <keyword type="macro" name="GRITS_SKIP_CENTER" link="GritsObject.html#GRITS-SKIP-CENTER:CAPS"/>
+    <keyword type="macro" name="GRITS_SKIP_HORIZON" link="GritsObject.html#GRITS-SKIP-HORIZON:CAPS"/>
+    <keyword type="macro" name="GRITS_SKIP_LOD" link="GritsObject.html#GRITS-SKIP-LOD:CAPS"/>
+    <keyword type="macro" name="GRITS_SKIP_STATE" link="GritsObject.html#GRITS-SKIP-STATE:CAPS"/>
+    <keyword type="struct" name="struct GritsObject" link="GritsObject.html#GritsObject-struct"/>
+    <keyword type="struct" name="struct GritsObjectClass" link="GritsObject.html#GritsObjectClass"/>
+    <keyword type="struct" name="GritsState" link="GritsObject.html#GritsState"/>
+    <keyword type="macro" name="grits_object_center()" link="GritsObject.html#grits-object-center"/>
+    <keyword type="function" name="grits_object_draw ()" link="GritsObject.html#grits-object-draw"/>
+    <keyword type="function" name="grits_object_event ()" link="GritsObject.html#grits-object-event"/>
+    <keyword type="function" name="grits_object_hide ()" link="GritsObject.html#grits-object-hide"/>
+    <keyword type="function" name="grits_object_pick ()" link="GritsObject.html#grits-object-pick"/>
+    <keyword type="function" name="grits_object_queue_draw ()" link="GritsObject.html#grits-object-queue-draw"/>
+    <keyword type="function" name="grits_object_set_cursor ()" link="GritsObject.html#grits-object-set-cursor"/>
+    <keyword type="function" name="grits_object_set_pointer ()" link="GritsObject.html#grits-object-set-pointer"/>
+    <keyword type="signal" name="The &quot;button-press&quot; signal" link="GritsObject.html#GritsObject-button-press"/>
+    <keyword type="signal" name="The &quot;button-release&quot; signal" link="GritsObject.html#GritsObject-button-release"/>
+    <keyword type="signal" name="The &quot;clicked&quot; signal" link="GritsObject.html#GritsObject-clicked"/>
+    <keyword type="signal" name="The &quot;enter&quot; signal" link="GritsObject.html#GritsObject-enter"/>
+    <keyword type="signal" name="The &quot;key-press&quot; signal" link="GritsObject.html#GritsObject-key-press"/>
+    <keyword type="signal" name="The &quot;key-release&quot; signal" link="GritsObject.html#GritsObject-key-release"/>
+    <keyword type="signal" name="The &quot;leave&quot; signal" link="GritsObject.html#GritsObject-leave"/>
+    <keyword type="signal" name="The &quot;motion&quot; signal" link="GritsObject.html#GritsObject-motion"/>
+    <keyword type="struct" name="struct GritsTile" link="GritsTile.html#GritsTile-struct"/>
+    <keyword type="struct" name="struct GritsTileClass" link="GritsTile.html#GritsTileClass"/>
+    <keyword type="function" name="GritsTileFreeFunc ()" link="GritsTile.html#GritsTileFreeFunc"/>
+    <keyword type="function" name="GritsTileLoadFunc ()" link="GritsTile.html#GritsTileLoadFunc"/>
+    <keyword type="function" name="grits_tile_find ()" link="GritsTile.html#grits-tile-find"/>
+    <keyword type="macro" name="grits_tile_foreach()" link="GritsTile.html#grits-tile-foreach"/>
+    <keyword type="macro" name="grits_tile_foreach_index()" link="GritsTile.html#grits-tile-foreach-index"/>
+    <keyword type="function" name="grits_tile_free ()" link="GritsTile.html#grits-tile-free"/>
+    <keyword type="function" name="grits_tile_gc ()" link="GritsTile.html#grits-tile-gc"/>
+    <keyword type="function" name="grits_tile_get_path ()" link="GritsTile.html#grits-tile-get-path"/>
+    <keyword type="function" name="grits_tile_load_file ()" link="GritsTile.html#grits-tile-load-file"/>
+    <keyword type="function" name="grits_tile_load_pixbuf ()" link="GritsTile.html#grits-tile-load-pixbuf"/>
+    <keyword type="function" name="grits_tile_load_pixels ()" link="GritsTile.html#grits-tile-load-pixels"/>
+    <keyword type="function" name="grits_tile_new ()" link="GritsTile.html#grits-tile-new"/>
+    <keyword type="function" name="grits_tile_update ()" link="GritsTile.html#grits-tile-update"/>
+    <keyword type="macro" name="GRITS_MARKER_DMASK_ALL" link="GritsMarker.html#GRITS-MARKER-DMASK-ALL:CAPS"/>
+    <keyword type="macro" name="GRITS_MARKER_DMASK_DIRECTIONAL" link="GritsMarker.html#GRITS-MARKER-DMASK-DIRECTIONAL:CAPS"/>
+    <keyword type="macro" name="GRITS_MARKER_DMASK_ICON" link="GritsMarker.html#GRITS-MARKER-DMASK-ICON:CAPS"/>
+    <keyword type="macro" name="GRITS_MARKER_DMASK_LABEL" link="GritsMarker.html#GRITS-MARKER-DMASK-LABEL:CAPS"/>
+    <keyword type="macro" name="GRITS_MARKER_DMASK_NONE" link="GritsMarker.html#GRITS-MARKER-DMASK-NONE:CAPS"/>
+    <keyword type="macro" name="GRITS_MARKER_DMASK_POINT" link="GritsMarker.html#GRITS-MARKER-DMASK-POINT:CAPS"/>
+    <keyword type="struct" name="struct GritsMarker" link="GritsMarker.html#GritsMarker-struct"/>
+    <keyword type="struct" name="struct GritsMarkerClass" link="GritsMarker.html#GritsMarkerClass"/>
+    <keyword type="function" name="grits_marker_icon_new ()" link="GritsMarker.html#grits-marker-icon-new"/>
+    <keyword type="function" name="grits_marker_new ()" link="GritsMarker.html#grits-marker-new"/>
+    <keyword type="struct" name="struct GritsCallback" link="GritsCallback.html#GritsCallback-struct"/>
+    <keyword type="struct" name="struct GritsCallbackClass" link="GritsCallback.html#GritsCallbackClass"/>
+    <keyword type="function" name="GritsCallbackFunc ()" link="GritsCallback.html#GritsCallbackFunc"/>
+    <keyword type="function" name="grits_callback_new ()" link="GritsCallback.html#grits-callback-new"/>
+    <keyword type="function" name="GritsPluginConstructor ()" link="grits-GritsPlugin.html#GritsPluginConstructor"/>
+    <keyword type="struct" name="struct GritsPluginInterface" link="grits-GritsPlugin.html#GritsPluginInterface"/>
+    <keyword type="struct" name="struct GritsPlugins" link="grits-GritsPlugin.html#GritsPlugins"/>
+    <keyword type="function" name="grits_plugin_get_config ()" link="grits-GritsPlugin.html#grits-plugin-get-config"/>
+    <keyword type="function" name="grits_plugin_get_description ()" link="grits-GritsPlugin.html#grits-plugin-get-description"/>
+    <keyword type="function" name="grits_plugin_get_name ()" link="grits-GritsPlugin.html#grits-plugin-get-name"/>
+    <keyword type="function" name="grits_plugins_available ()" link="grits-GritsPlugin.html#grits-plugins-available"/>
+    <keyword type="function" name="grits_plugins_disable ()" link="grits-GritsPlugin.html#grits-plugins-disable"/>
+    <keyword type="function" name="grits_plugins_enable ()" link="grits-GritsPlugin.html#grits-plugins-enable"/>
+    <keyword type="function" name="grits_plugins_foreach ()" link="grits-GritsPlugin.html#grits-plugins-foreach"/>
+    <keyword type="function" name="grits_plugins_free ()" link="grits-GritsPlugin.html#grits-plugins-free"/>
+    <keyword type="function" name="grits_plugins_load ()" link="grits-GritsPlugin.html#grits-plugins-load"/>
+    <keyword type="function" name="grits_plugins_load_enabled ()" link="grits-GritsPlugin.html#grits-plugins-load-enabled"/>
+    <keyword type="function" name="grits_plugins_new ()" link="grits-GritsPlugin.html#grits-plugins-new"/>
+    <keyword type="function" name="grits_plugins_unload ()" link="grits-GritsPlugin.html#grits-plugins-unload"/>
+    <keyword type="struct" name="struct GritsPluginElev" link="GritsPluginElev.html#GritsPluginElev-struct"/>
+    <keyword type="struct" name="struct GritsPluginElevClass" link="GritsPluginElev.html#GritsPluginElevClass"/>
+    <keyword type="function" name="grits_plugin_elev_new ()" link="GritsPluginElev.html#grits-plugin-elev-new"/>
+    <keyword type="struct" name="struct GritsPluginEnv" link="GritsPluginEnv.html#GritsPluginEnv-struct"/>
+    <keyword type="struct" name="struct GritsPluginEnvClass" link="GritsPluginEnv.html#GritsPluginEnvClass"/>
+    <keyword type="function" name="grits_plugin_env_new ()" link="GritsPluginEnv.html#grits-plugin-env-new"/>
+    <keyword type="struct" name="struct GritsPluginMap" link="GritsPluginMap.html#GritsPluginMap-struct"/>
+    <keyword type="struct" name="struct GritsPluginMapClass" link="GritsPluginMap.html#GritsPluginMapClass"/>
+    <keyword type="function" name="grits_plugin_map_new ()" link="GritsPluginMap.html#grits-plugin-map-new"/>
+    <keyword type="struct" name="struct GritsPluginSat" link="GritsPluginSat.html#GritsPluginSat-struct"/>
+    <keyword type="struct" name="struct GritsPluginSatClass" link="GritsPluginSat.html#GritsPluginSatClass"/>
+    <keyword type="function" name="grits_plugin_sat_new ()" link="GritsPluginSat.html#grits-plugin-sat-new"/>
+    <keyword type="struct" name="struct GritsPluginTest" link="GritsPluginTest.html#GritsPluginTest-struct"/>
+    <keyword type="struct" name="struct GritsPluginTestClass" link="GritsPluginTest.html#GritsPluginTestClass"/>
+    <keyword type="function" name="grits_plugin_test_new ()" link="GritsPluginTest.html#grits-plugin-test-new"/>
+    <keyword type="struct" name="GPQueue" link="grits-gpqueue.html#GPQueue" since="2.x"/>
+    <keyword type="typedef" name="GPQueueHandle" link="grits-gpqueue.html#GPQueueHandle" since="2.x"/>
+    <keyword type="struct" name="GPQueueNode" link="grits-gpqueue.html#GPQueueNode"/>
+    <keyword type="function" name="g_pqueue_clear ()" link="grits-gpqueue.html#g-pqueue-clear" since="2.x"/>
+    <keyword type="function" name="g_pqueue_foreach ()" link="grits-gpqueue.html#g-pqueue-foreach" since="2.x"/>
+    <keyword type="function" name="g_pqueue_free ()" link="grits-gpqueue.html#g-pqueue-free" since="2.x"/>
+    <keyword type="function" name="g_pqueue_get_array ()" link="grits-gpqueue.html#g-pqueue-get-array" since="2.x"/>
+    <keyword type="function" name="g_pqueue_is_empty ()" link="grits-gpqueue.html#g-pqueue-is-empty" since="2.x"/>
+    <keyword type="function" name="g_pqueue_new ()" link="grits-gpqueue.html#g-pqueue-new" since="2.x"/>
+    <keyword type="function" name="g_pqueue_peek ()" link="grits-gpqueue.html#g-pqueue-peek" since="2.x"/>
+    <keyword type="function" name="g_pqueue_pop ()" link="grits-gpqueue.html#g-pqueue-pop" since="2.x"/>
+    <keyword type="function" name="g_pqueue_priority_changed ()" link="grits-gpqueue.html#g-pqueue-priority-changed" since="2.x"/>
+    <keyword type="function" name="g_pqueue_priority_decreased ()" link="grits-gpqueue.html#g-pqueue-priority-decreased" since="2.x"/>
+    <keyword type="function" name="g_pqueue_push ()" link="grits-gpqueue.html#g-pqueue-push" since="2.x"/>
+    <keyword type="function" name="g_pqueue_remove ()" link="grits-gpqueue.html#g-pqueue-remove" since="2.x"/>
+    <keyword type="struct" name="struct RoamDiamond" link="grits-roam.html#RoamDiamond"/>
+    <keyword type="function" name="RoamHeightFunc ()" link="grits-roam.html#RoamHeightFunc"/>
+    <keyword type="struct" name="struct RoamPoint" link="grits-roam.html#RoamPoint"/>
+    <keyword type="struct" name="struct RoamSphere" link="grits-roam.html#RoamSphere"/>
+    <keyword type="struct" name="struct RoamTriangle" link="grits-roam.html#RoamTriangle"/>
+    <keyword type="struct" name="struct RoamView" link="grits-roam.html#RoamView"/>
+    <keyword type="function" name="roam_diamond_add ()" link="grits-roam.html#roam-diamond-add"/>
+    <keyword type="function" name="roam_diamond_merge ()" link="grits-roam.html#roam-diamond-merge"/>
+    <keyword type="function" name="roam_diamond_new ()" link="grits-roam.html#roam-diamond-new"/>
+    <keyword type="function" name="roam_diamond_remove ()" link="grits-roam.html#roam-diamond-remove"/>
+    <keyword type="function" name="roam_diamond_update_errors ()" link="grits-roam.html#roam-diamond-update-errors"/>
+    <keyword type="function" name="roam_point_add_triangle ()" link="grits-roam.html#roam-point-add-triangle"/>
+    <keyword type="function" name="roam_point_new ()" link="grits-roam.html#roam-point-new"/>
+    <keyword type="function" name="roam_point_remove_triangle ()" link="grits-roam.html#roam-point-remove-triangle"/>
+    <keyword type="function" name="roam_point_update_height ()" link="grits-roam.html#roam-point-update-height"/>
+    <keyword type="function" name="roam_point_update_projection ()" link="grits-roam.html#roam-point-update-projection"/>
+    <keyword type="function" name="roam_sphere_draw ()" link="grits-roam.html#roam-sphere-draw"/>
+    <keyword type="function" name="roam_sphere_draw_normals ()" link="grits-roam.html#roam-sphere-draw-normals"/>
+    <keyword type="function" name="roam_sphere_free ()" link="grits-roam.html#roam-sphere-free"/>
+    <keyword type="function" name="roam_sphere_get_intersect ()" link="grits-roam.html#roam-sphere-get-intersect"/>
+    <keyword type="function" name="roam_sphere_merge_one ()" link="grits-roam.html#roam-sphere-merge-one"/>
+    <keyword type="function" name="roam_sphere_new ()" link="grits-roam.html#roam-sphere-new"/>
+    <keyword type="function" name="roam_sphere_split_merge ()" link="grits-roam.html#roam-sphere-split-merge"/>
+    <keyword type="function" name="roam_sphere_split_one ()" link="grits-roam.html#roam-sphere-split-one"/>
+    <keyword type="function" name="roam_sphere_update_errors ()" link="grits-roam.html#roam-sphere-update-errors"/>
+    <keyword type="function" name="roam_sphere_update_view ()" link="grits-roam.html#roam-sphere-update-view"/>
+    <keyword type="function" name="roam_triangle_add ()" link="grits-roam.html#roam-triangle-add"/>
+    <keyword type="function" name="roam_triangle_draw ()" link="grits-roam.html#roam-triangle-draw"/>
+    <keyword type="function" name="roam_triangle_draw_normal ()" link="grits-roam.html#roam-triangle-draw-normal"/>
+    <keyword type="function" name="roam_triangle_free ()" link="grits-roam.html#roam-triangle-free"/>
+    <keyword type="function" name="roam_triangle_new ()" link="grits-roam.html#roam-triangle-new"/>
+    <keyword type="function" name="roam_triangle_remove ()" link="grits-roam.html#roam-triangle-remove"/>
+    <keyword type="function" name="roam_triangle_split ()" link="grits-roam.html#roam-triangle-split"/>
+    <keyword type="function" name="roam_triangle_update_errors ()" link="grits-roam.html#roam-triangle-update-errors"/>
+    <keyword type="constant" name="GRITS_LOCAL" link="grits-grits-data.html#GRITS-LOCAL:CAPS"/>
+    <keyword type="constant" name="GRITS_ONCE" link="grits-grits-data.html#GRITS-ONCE:CAPS"/>
+    <keyword type="constant" name="GRITS_UPDATE" link="grits-grits-data.html#GRITS-UPDATE:CAPS"/>
+    <keyword type="constant" name="GRITS_REFRESH" link="grits-grits-data.html#GRITS-REFRESH:CAPS"/>
+  </functions>
+</book>

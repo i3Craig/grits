@@ -1,0 +1,149 @@
+<!-- ##### SECTION Title ##### -->
+gpqueue
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GPQueue ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### TYPEDEF GPQueueHandle ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT GPQueueNode ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION g_pqueue_clear ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+
+
+<!-- ##### FUNCTION g_pqueue_foreach ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+@func: 
+@user_data: 
+
+
+<!-- ##### FUNCTION g_pqueue_free ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+
+
+<!-- ##### FUNCTION g_pqueue_get_array ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_pqueue_is_empty ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_pqueue_new ##### -->
+<para>
+
+</para>
+
+@compare_func: 
+@compare_userdata: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_pqueue_peek ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_pqueue_pop ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_pqueue_priority_changed ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+@entry: 
+
+
+<!-- ##### FUNCTION g_pqueue_priority_decreased ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+@entry: 
+
+
+<!-- ##### FUNCTION g_pqueue_push ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_pqueue_remove ##### -->
+<para>
+
+</para>
+
+@pqueue: 
+@entry: 
+
+

@@ -1,0 +1,348 @@
+<!-- ##### SECTION Title ##### -->
+GritsViewer
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO GRITS_LEVEL_BACKGROUND ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_LEVEL_HUD ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_LEVEL_OVERLAY ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_LEVEL_WORLD ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### USER_FUNCTION GritsHeightFunc ##### -->
+<para>
+
+</para>
+
+@lat: 
+@lon: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### ENUM GritsProj ##### -->
+<para>
+
+</para>
+
+@GRITS_PROJ_LATLON: 
+@GRITS_PROJ_MERCATOR: 
+
+<!-- ##### STRUCT GritsViewer ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL GritsViewer::location-changed ##### -->
+<para>
+
+</para>
+
+@gritsviewer: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+
+<!-- ##### SIGNAL GritsViewer::offline ##### -->
+<para>
+
+</para>
+
+@gritsviewer: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL GritsViewer::refresh ##### -->
+<para>
+
+</para>
+
+@gritsviewer: the object which received the signal.
+
+<!-- ##### SIGNAL GritsViewer::rotation-changed ##### -->
+<para>
+
+</para>
+
+@gritsviewer: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+
+<!-- ##### SIGNAL GritsViewer::time-changed ##### -->
+<para>
+
+</para>
+
+@gritsviewer: the object which received the signal.
+@arg1: 
+
+<!-- ##### STRUCT GritsViewerClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+@center_position: 
+@project: 
+@unproject: 
+@clear_height_func: 
+@set_height_func: 
+@add: 
+@remove: 
+
+<!-- ##### FUNCTION grits_viewer_add ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@object: 
+@level: 
+@sort: 
+
+
+<!-- ##### FUNCTION grits_viewer_center_position ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@lat: 
+@lon: 
+@elev: 
+
+
+<!-- ##### FUNCTION grits_viewer_clear_height_func ##### -->
+<para>
+
+</para>
+
+@viewer: 
+
+
+<!-- ##### FUNCTION grits_viewer_get_location ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@lat: 
+@lon: 
+@elev: 
+
+
+<!-- ##### FUNCTION grits_viewer_get_offline ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_viewer_get_rotation ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@x: 
+@y: 
+@z: 
+
+
+<!-- ##### FUNCTION grits_viewer_get_time ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_viewer_pan ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@forward: 
+@right: 
+@up: 
+
+
+<!-- ##### FUNCTION grits_viewer_project ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@lat: 
+@lon: 
+@elev: 
+@px: 
+@py: 
+@pz: 
+
+
+<!-- ##### FUNCTION grits_viewer_queue_draw ##### -->
+<para>
+
+</para>
+
+@viewer: 
+
+
+<!-- ##### FUNCTION grits_viewer_refresh ##### -->
+<para>
+
+</para>
+
+@viewer: 
+
+
+<!-- ##### FUNCTION grits_viewer_remove ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@object: 
+
+
+<!-- ##### FUNCTION grits_viewer_rotate ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@x: 
+@y: 
+@z: 
+
+
+<!-- ##### FUNCTION grits_viewer_set_height_func ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@bounds: 
+@height_func: 
+@user_data: 
+@update: 
+
+
+<!-- ##### FUNCTION grits_viewer_set_location ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@lat: 
+@lon: 
+@elev: 
+
+
+<!-- ##### FUNCTION grits_viewer_set_offline ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@offline: 
+
+
+<!-- ##### FUNCTION grits_viewer_set_rotation ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@x: 
+@y: 
+@z: 
+
+
+<!-- ##### FUNCTION grits_viewer_set_time ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@time: 
+
+
+<!-- ##### FUNCTION grits_viewer_setup ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@plugins: 
+@prefs: 
+
+
+<!-- ##### FUNCTION grits_viewer_unproject ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@px: 
+@py: 
+@pz: 
+@lat: 
+@lon: 
+@elev: 
+
+
+<!-- ##### FUNCTION grits_viewer_zoom ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@scale: 
+
+

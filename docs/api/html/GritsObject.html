@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GritsObject</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch03.html" title="Drawing Objects">
+<link rel="prev" href="ch03.html" title="Drawing Objects">
+<link rel="next" href="GritsTile.html" title="GritsTile">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch03.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="GritsTile.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GritsObject.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GritsObject.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GritsObject.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GritsObject.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GritsObject"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GritsObject.top_of_page"></a>GritsObject</span></h2>
+<p>GritsObject — Base class for drawing operations</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GritsObject.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="GritsObject.html#GRITS-SKIP-CENTER:CAPS" title="GRITS_SKIP_CENTER">GRITS_SKIP_CENTER</a>
+#define             <a class="link" href="GritsObject.html#GRITS-SKIP-HORIZON:CAPS" title="GRITS_SKIP_HORIZON">GRITS_SKIP_HORIZON</a>
+#define             <a class="link" href="GritsObject.html#GRITS-SKIP-LOD:CAPS" title="GRITS_SKIP_LOD">GRITS_SKIP_LOD</a>
+#define             <a class="link" href="GritsObject.html#GRITS-SKIP-STATE:CAPS" title="GRITS_SKIP_STATE">GRITS_SKIP_STATE</a>
+struct              <a class="link" href="GritsObject.html#GritsObject-struct" title="struct GritsObject">GritsObject</a>;
+struct              <a class="link" href="GritsObject.html#GritsObjectClass" title="struct GritsObjectClass">GritsObjectClass</a>;
+                    <a class="link" href="GritsObject.html#GritsState" title="GritsState">GritsState</a>;
+#define             <a class="link" href="GritsObject.html#grits-object-center" title="grits_object_center()">grits_object_center</a>                 (object)
+<span class="returnvalue">void</span>                <a class="link" href="GritsObject.html#grits-object-draw" title="grits_object_draw ()">grits_object_draw</a>                   (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsOpenGL.html" title="GritsOpenGL"><span class="type">GritsOpenGL</span></a> *opengl</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GritsObject.html#grits-object-event" title="grits_object_event ()">grits_object_event</a>                  (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gdk/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsObject.html#grits-object-hide" title="grits_object_hide ()">grits_object_hide</a>                   (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> hidden</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsObject.html#grits-object-pick" title="grits_object_pick ()">grits_object_pick</a>                   (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsOpenGL.html" title="GritsOpenGL"><span class="type">GritsOpenGL</span></a> *opengl</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsObject.html#grits-object-queue-draw" title="grits_object_queue_draw ()">grits_object_queue_draw</a>             (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsObject.html#grits-object-set-cursor" title="grits_object_set_cursor ()">grits_object_set_cursor</a>             (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gdk/gdk3-Cursors.html#GdkCursorType"><span class="type">GdkCursorType</span></a> cursor</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GritsObject.html#grits-object-set-pointer" title="grits_object_set_pointer ()">grits_object_set_pointer</a>            (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gdk/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> selected</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsObject.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GritsObject
+         +----<a class="link" href="GritsCallback.html" title="GritsCallback">GritsCallback</a>
+         +----GritsLine
+         +----<a class="link" href="GritsMarker.html" title="GritsMarker">GritsMarker</a>
+         +----GritsPoly
+         +----<a class="link" href="GritsTile.html" title="GritsTile">GritsTile</a>
+         +----GritsVolume
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsObject.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GritsObject.html#GritsObject-button-press" title='The "button-press" signal'>button-press</a>"                                   : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GritsObject.html#GritsObject-button-release" title='The "button-release" signal'>button-release</a>"                                 : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GritsObject.html#GritsObject-clicked" title='The "clicked" signal'>clicked</a>"                                        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GritsObject.html#GritsObject-enter" title='The "enter" signal'>enter</a>"                                          : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GritsObject.html#GritsObject-key-press" title='The "key-press" signal'>key-press</a>"                                      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GritsObject.html#GritsObject-key-release" title='The "key-release" signal'>key-release</a>"                                    : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GritsObject.html#GritsObject-leave" title='The "leave" signal'>leave</a>"                                          : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GritsObject.html#GritsObject-motion" title='The "motion" signal'>motion</a>"                                         : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsObject.description"></a><h2>Description</h2>
+<p>
+Objects in grits are things which can be added to the viewer and will be
+displayed to the user. Each object has information such as it's location and
+level of detail which are used by the viewer to determine which objects
+should be drawn.
+</p>
+<p>
+Each <a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> is also a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>, but not every GObject in grits is a
+GritsObject. The "Object" part of the name is just coincidence.
+</p>
+</div>
+<div class="refsect1">
+<a name="GritsObject.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GRITS-SKIP-CENTER:CAPS"></a><h3>GRITS_SKIP_CENTER</h3>
+<pre class="programlisting">#define GRITS_SKIP_CENTER  (1&lt;&lt;2)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GRITS-SKIP-HORIZON:CAPS"></a><h3>GRITS_SKIP_HORIZON</h3>
+<pre class="programlisting">#define GRITS_SKIP_HORIZON (1&lt;&lt;1)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GRITS-SKIP-LOD:CAPS"></a><h3>GRITS_SKIP_LOD</h3>
+<pre class="programlisting">#define GRITS_SKIP_LOD     (1&lt;&lt;0)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GRITS-SKIP-STATE:CAPS"></a><h3>GRITS_SKIP_STATE</h3>
+<pre class="programlisting">#define GRITS_SKIP_STATE   (1&lt;&lt;3)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsObject-struct"></a><h3>struct GritsObject</h3>
+<pre class="programlisting">struct GritsObject;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsObjectClass"></a><h3>struct GritsObjectClass</h3>
+<pre class="programlisting">struct GritsObjectClass {
+	GObjectClass parent_class;
+
+	/* Move some of these to GObject? */
+	void (*draw) (GritsObject *object, GritsOpenGL *opengl);
+	void (*pick) (GritsObject *object, GritsOpenGL *opengl);
+	void (*hide) (GritsObject *object, gboolean hidden);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsState"></a><h3>GritsState</h3>
+<pre class="programlisting">typedef struct {
+	guint picked   : 1;
+	guint selected : 1;
+	guint clicking : 6;
+} GritsState;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-object-center"></a><h3>grits_object_center()</h3>
+<pre class="programlisting">#define             grits_object_center(object)</pre>
+<p>
+Get the <a class="link" href="grits-grits-util.html#GritsPoint" title="struct GritsPoint"><span class="type">GritsPoint</span></a> representing the center of an object
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>The <a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> to get the center of</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the center point</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-object-draw"></a><h3>grits_object_draw ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_object_draw                   (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsOpenGL.html" title="GritsOpenGL"><span class="type">GritsOpenGL</span></a> *opengl</code></em>);</pre>
+<p>
+Perform any OpenGL commands necessasairy to draw the object.
+</p>
+<p>
+The GL_PROJECTION and GL_MODELVIEW matricies and GL_ALL_ATTRIB_BITS will be
+restored to the default state after the call to draw.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>the object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opengl</code></em> :</span></p></td>
+<td>the viewer the object is being displayed in</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-object-event"></a><h3>grits_object_event ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            grits_object_event                  (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gdk/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-object-hide"></a><h3>grits_object_hide ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_object_hide                   (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> hidden</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-object-pick"></a><h3>grits_object_pick ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_object_pick                   (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsOpenGL.html" title="GritsOpenGL"><span class="type">GritsOpenGL</span></a> *opengl</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-object-queue-draw"></a><h3>grits_object_queue_draw ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_object_queue_draw             (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>);</pre>
+<p>
+Cause the widget to be redrawn on the screen at some later point
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>The <a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> that needs drawing</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-object-set-cursor"></a><h3>grits_object_set_cursor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_object_set_cursor             (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gdk/gdk3-Cursors.html#GdkCursorType"><span class="type">GdkCursorType</span></a> cursor</code></em>);</pre>
+<p>
+Causes the cursor to use a particular icon when located over a given object
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>The <a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> to set the cursor for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cursor</code></em> :</span></p></td>
+<td>The cursor to use when the object is hovered over</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-object-set-pointer"></a><h3>grits_object_set_pointer ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            grits_object_set_pointer            (<em class="parameter"><code><a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gdk/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> selected</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GritsObject.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GritsObject-button-press"></a><h3>The <code class="literal">"button-press"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *gritsobject,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gritsobject</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsObject-button-release"></a><h3>The <code class="literal">"button-release"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *gritsobject,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gritsobject</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsObject-clicked"></a><h3>The <code class="literal">"clicked"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *gritsobject,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gritsobject</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsObject-enter"></a><h3>The <code class="literal">"enter"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *object,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+The ::enter signal is emitted when the pointer moves over the object
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>the object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsObject-key-press"></a><h3>The <code class="literal">"key-press"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *gritsobject,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gritsobject</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsObject-key-release"></a><h3>The <code class="literal">"key-release"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *gritsobject,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gritsobject</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsObject-leave"></a><h3>The <code class="literal">"leave"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *gritsobject,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gritsobject</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsObject-motion"></a><h3>The <code class="literal">"motion"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GritsObject.html" title="GritsObject"><span class="type">GritsObject</span></a> *gritsobject,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gritsobject</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

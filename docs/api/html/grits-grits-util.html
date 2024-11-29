@@ -1,0 +1,950 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>grits-util</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="GritsPrefs.html" title="GritsPrefs">
+<link rel="next" href="ch02.html" title="Data Access">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GritsPrefs.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="ch02.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#grits-grits-util.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#grits-grits-util.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="grits-grits-util"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="grits-grits-util.top_of_page"></a>grits-util</span></h2>
+<p>grits-util — Geographic utilities</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="grits-grits-util.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="grits-grits-util.html#EARTH-C:CAPS" title="EARTH_C">EARTH_C</a>
+#define             <a class="link" href="grits-grits-util.html#EARTH-R:CAPS" title="EARTH_R">EARTH_R</a>
+#define             <a class="link" href="grits-grits-util.html#EAST:CAPS" title="EAST">EAST</a>
+#define             <a class="link" href="grits-grits-util.html#FOV-DIST:CAPS" title="FOV_DIST">FOV_DIST</a>
+struct              <a class="link" href="grits-grits-util.html#GritsBounds" title="struct GritsBounds">GritsBounds</a>;
+struct              <a class="link" href="grits-grits-util.html#GritsPoint" title="struct GritsPoint">GritsPoint</a>;
+#define             <a class="link" href="grits-grits-util.html#MPPX:CAPS" title="MPPX()">MPPX</a>                                (dist)
+#define             <a class="link" href="grits-grits-util.html#NORTH:CAPS" title="NORTH">NORTH</a>
+#define             <a class="link" href="grits-grits-util.html#SOUTH:CAPS" title="SOUTH">SOUTH</a>
+#define             <a class="link" href="grits-grits-util.html#WEST:CAPS" title="WEST">WEST</a>
+#define             <a class="link" href="grits-grits-util.html#azim2lon" title="azim2lon()">azim2lon</a>                            (azim)
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-util.html#crossd" title="crossd ()">crossd</a>                              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *b</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *out</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-util.html#crossd3" title="crossd3 ()">crossd3</a>                             (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *b</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *c</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *out</code></em>);
+#define             <a class="link" href="grits-grits-util.html#deg2rad" title="deg2rad()">deg2rad</a>                             (deg)
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="grits-grits-util.html#distd" title="distd ()">distd</a>                               (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *b</code></em>);
+#define             <a class="link" href="grits-grits-util.html#elev2rad" title="elev2rad()">elev2rad</a>                            (elev)
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-util.html#free-points" title="free_points ()">free_points</a>                         (<em class="parameter"><code><a href="grits-grits-util.html#GritsPoint"><span class="type">GritsPoints</span></a> *points</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-util.html#grits-bounds-set-bounds" title="grits_bounds_set_bounds ()">grits_bounds_set_bounds</a>             (<em class="parameter"><code><a class="link" href="grits-grits-util.html#GritsBounds" title="struct GritsBounds"><span class="type">GritsBounds</span></a> *bounds</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> s</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> e</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> w</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-util.html#grits-point-set-lle" title="grits_point_set_lle ()">grits_point_set_lle</a>                 (<em class="parameter"><code><a class="link" href="grits-grits-util.html#GritsPoint" title="struct GritsPoint"><span class="type">GritsPoint</span></a> *point</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> elev</code></em>);
+#define             <a class="link" href="grits-grits-util.html#incl2lat" title="incl2lat()">incl2lat</a>                            (incl)
+#define             <a class="link" href="grits-grits-util.html#lat2incl" title="lat2incl()">lat2incl</a>                            (lat)
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="grits-grits-util.html#lengthd" title="lengthd ()">lengthd</a>                             (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *a</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="grits-grits-util.html#ll2m" title="ll2m ()">ll2m</a>                                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lon_dist</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lat</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-util.html#lle2xyz" title="lle2xyz ()">lle2xyz</a>                             (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> elev</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *z</code></em>);
+#define             <a class="link" href="grits-grits-util.html#lon2azim" title="lon2azim()">lon2azim</a>                            (lon)
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="grits-grits-util.html#lon-avg" title="lon_avg ()">lon_avg</a>                             (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> b</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-util.html#normd" title="normd ()">normd</a>                               (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *a</code></em>);
+<a href="grits-grits-util.html#GritsPoint"><span class="returnvalue">GritsPoints</span></a> *       <a class="link" href="grits-grits-util.html#parse-points" title="parse_points ()">parse_points</a>                        (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group_sep</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *point_sep</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *coord_sep</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-util.html#GritsBounds" title="struct GritsBounds"><span class="type">GritsBounds</span></a> *bounds</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-util.html#GritsPoint" title="struct GritsPoint"><span class="type">GritsPoint</span></a> *center</code></em>);
+#define             <a class="link" href="grits-grits-util.html#rad2deg" title="rad2deg()">rad2deg</a>                             (rad)
+#define             <a class="link" href="grits-grits-util.html#rad2elev" title="rad2elev()">rad2elev</a>                            (rad)
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-util.html#xyz2ll" title="xyz2ll ()">xyz2ll</a>                              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> z</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *lon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-util.html#xyz2lle" title="xyz2lle ()">xyz2lle</a>                             (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> z</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *lon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *elev</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="grits-grits-util.description"></a><h2>Description</h2>
+<p>
+Miscellaneous utility functions, these deal mostly with coordinate
+conversion. Below are some examples that should help demonstrate how these
+functions work.
+</p>
+<p>
+</p>
+<div class="example">
+<a name="idm140346418573664"></a><p class="title"><b>Example 1. Terminology</b></p>
+<div class="example-contents"><pre class="programlisting">
+deg    - Degrees
+rad    - Radians, also radius
+m      - Meters, for earth-based distances
+px     - Pixels, for screen-based distances
+
+height - Height, the distance above the geoid (ground)
+elev   - Elevation, the distance above the spheroid
+rad    - Radius, the distance from the center of the earth
+
+lat    - Latitude, amount north-south, -90 (S) .. 90 (N)
+lon    - Longitude, amount east-west, -180 (W) .. 180 (E)
+incl   - Inclination, polar equiv of  latitude, Pi .. 0
+azim   - Azimuth, polar equiv of longitude, -Pi .. Pi
+
+x      -  0° lon is positive
+y      - 90° lon is positive
+z      - North pole is positive
+
+llh    - lat,lon,height
+lle    - lat,lon,elev
+llr    - lat,lon,rad
+pol    - incl,azim,rad
+xyz    - x,y,z
+</pre></div>
+</div>
+<p><br class="example-break">
+</p>
+<p>
+</p>
+<div class="example">
+<a name="idm140346418570896"></a><p class="title"><b>Example 2. Conversions</b></p>
+<div class="example-contents"><pre class="programlisting">
+            lat    lon   elev -&gt;      x      y      z
+lle2xyz:    0.0,   0.0,   0.0 -&gt;    0.0,   0.0,  10.0
+lle2xyz:   90.0,   0.0,   0.0 -&gt;    0.0,  10.0,   0.0
+lle2xyz:    0.0,  90.0,   0.0 -&gt;   10.0,   0.0,   0.0
+
+              x      y      z -&gt;    lat    lon   elev
+xyz2lle:   10.0,   0.0,   0.0 -&gt;    0.0,  90.0,   0.0
+xyz2lle:    0.0,  10.0,   0.0 -&gt;   90.0,   0.0,   0.0
+xyz2lle:    0.0,   0.0,  10.0 -&gt;    0.0,   0.0,   0.0
+</pre></div>
+</div>
+<p><br class="example-break">
+</p>
+</div>
+<div class="refsect1">
+<a name="grits-grits-util.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="EARTH-C:CAPS"></a><h3>EARTH_C</h3>
+<pre class="programlisting">#define EARTH_C (2*G_PI*EARTH_R)
+</pre>
+<p>
+Circumference of the earth at the equator
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="EARTH-R:CAPS"></a><h3>EARTH_R</h3>
+<pre class="programlisting">#define EARTH_R (6371000)
+</pre>
+<p>
+Radius of the earth
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="EAST:CAPS"></a><h3>EAST</h3>
+<pre class="programlisting">#define EAST  180
+</pre>
+<p>
+Eastern most longitude
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="FOV-DIST:CAPS"></a><h3>FOV_DIST</h3>
+<pre class="programlisting">#define FOV_DIST   (1039.23)
+</pre>
+<p>
+Used by GritsOpenGL to set up the drawing window
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsBounds"></a><h3>struct GritsBounds</h3>
+<pre class="programlisting">struct GritsBounds {
+	gdouble n, s, e, w;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsPoint"></a><h3>struct GritsPoint</h3>
+<pre class="programlisting">struct GritsPoint {
+	gdouble lat, lon, elev;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MPPX:CAPS"></a><h3>MPPX()</h3>
+<pre class="programlisting">#define MPPX(dist) (dist/FOV_DIST)
+</pre>
+<p>
+Get the resolution that a point would be drawn at on the screen
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>the distance between the eye and the point in question</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the resolution in meters per pixel</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="NORTH:CAPS"></a><h3>NORTH</h3>
+<pre class="programlisting">#define NORTH  90
+</pre>
+<p>
+Latitude at the north poll
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="SOUTH:CAPS"></a><h3>SOUTH</h3>
+<pre class="programlisting">#define SOUTH -90
+</pre>
+<p>
+Latitude at the south poll
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="WEST:CAPS"></a><h3>WEST</h3>
+<pre class="programlisting">#define WEST -180
+</pre>
+<p>
+Western most longitude
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="azim2lon"></a><h3>azim2lon()</h3>
+<pre class="programlisting">#define azim2lon(azim) ((azim)*180/G_PI)
+</pre>
+<p>
+Convert azimuth to longitude
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>azim</code></em> :</span></p></td>
+<td>the azimuth in radians</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the longitude</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="crossd"></a><h3>crossd ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                crossd                              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *b</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *out</code></em>);</pre>
+<p>
+Calculate the cross product of two vectors
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>the first vector</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>the second vector</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="crossd3"></a><h3>crossd3 ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                crossd3                             (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *b</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *c</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *out</code></em>);</pre>
+<p>
+Calculate the cross product of three points
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>the left   point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>the center point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>the right  point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out</code></em> :</span></p></td>
+<td>the cross product</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="deg2rad"></a><h3>deg2rad()</h3>
+<pre class="programlisting">#define deg2rad(deg) (((deg)*G_PI)/180.0)
+</pre>
+<p>
+Convert degrees to radians
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>deg</code></em> :</span></p></td>
+<td>the angle in degrees</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the angle in radians</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="distd"></a><h3>distd ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             distd                               (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *b</code></em>);</pre>
+<p>
+Calculate the distance between two three dimensional points.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>the first point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>the second point</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the distance between the points</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="elev2rad"></a><h3>elev2rad()</h3>
+<pre class="programlisting">#define elev2rad(elev) ((elev)+EARTH_R)
+</pre>
+<p>
+Convert elevation to radius
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>elev</code></em> :</span></p></td>
+<td>the elevation in meters above the earth surface</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the radius in meters</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="free-points"></a><h3>free_points ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                free_points                         (<em class="parameter"><code><a href="grits-grits-util.html#GritsPoint"><span class="type">GritsPoints</span></a> *points</code></em>);</pre>
+<p>
+Frees all data allocated by parse_points
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>points</code></em> :</span></p></td>
+<td>Array of points allocated by <a class="link" href="grits-grits-util.html#parse-points" title="parse_points ()"><code class="function">parse_points()</code></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-bounds-set-bounds"></a><h3>grits_bounds_set_bounds ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_bounds_set_bounds             (<em class="parameter"><code><a class="link" href="grits-grits-util.html#GritsBounds" title="struct GritsBounds"><span class="type">GritsBounds</span></a> *bounds</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> s</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> e</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> w</code></em>);</pre>
+<p>
+Set the north, south, east, and west edges of the bounding box
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>the north edge</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>the south edge</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e</code></em> :</span></p></td>
+<td>the east edge</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>the west edge</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-point-set-lle"></a><h3>grits_point_set_lle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_point_set_lle                 (<em class="parameter"><code><a class="link" href="grits-grits-util.html#GritsPoint" title="struct GritsPoint"><span class="type">GritsPoint</span></a> *point</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> elev</code></em>);</pre>
+<p>
+Set the latitude, longitude, and elevation for a point.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>point</code></em> :</span></p></td>
+<td>the point to modify</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat</code></em> :</span></p></td>
+<td>the new latitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lon</code></em> :</span></p></td>
+<td>the new longitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>elev</code></em> :</span></p></td>
+<td>the new elevation</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="incl2lat"></a><h3>incl2lat()</h3>
+<pre class="programlisting">#define incl2lat(incl) (90-(incl)*180/G_PI)
+</pre>
+<p>
+Convert inclination to latitude
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>incl</code></em> :</span></p></td>
+<td>the inclination in radians</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the latitude</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="lat2incl"></a><h3>lat2incl()</h3>
+<pre class="programlisting">#define lat2incl(lat)  ((90-(lat))*G_PI/180)
+</pre>
+<p>
+Convert latitude to inclination
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat</code></em> :</span></p></td>
+<td>the latitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the inclination in radians</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="lengthd"></a><h3>lengthd ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             lengthd                             (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *a</code></em>);</pre>
+<p>
+Calculate the length (magnitude) of a vector.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>the vector</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the length</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ll2m"></a><h3>ll2m ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             ll2m                                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lon_dist</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lat</code></em>);</pre>
+<p>
+Calculate the distance of longitudinal span at a particular latitude.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lon_dist</code></em> :</span></p></td>
+<td>the distance in degrees of longitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat</code></em> :</span></p></td>
+<td>the latitude to calculate at</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the distance in meters</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="lle2xyz"></a><h3>lle2xyz ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                lle2xyz                             (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> elev</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *z</code></em>);</pre>
+<p>
+Convert a point from latitude, longitude, and elevation to x, y and z
+coordinates.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat</code></em> :</span></p></td>
+<td>the latitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lon</code></em> :</span></p></td>
+<td>the longitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>elev</code></em> :</span></p></td>
+<td>the elevation</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>the resulting x coordinate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>the resulting y coordinate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>z</code></em> :</span></p></td>
+<td>the resulting z coordinate</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="lon2azim"></a><h3>lon2azim()</h3>
+<pre class="programlisting">#define lon2azim(lon)  ((lon)*G_PI/180)
+</pre>
+<p>
+Convert longitude to azimuth
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lon</code></em> :</span></p></td>
+<td>the longitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the azimuth in radians</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="lon-avg"></a><h3>lon_avg ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             lon_avg                             (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> b</code></em>);</pre>
+<p>
+Calculate the average longitude between two longitudes. This is smart about
+which side of the globe the resulting longitude is placed on.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>the first longitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>the second longitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the average</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="normd"></a><h3>normd ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                normd                               (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *a</code></em>);</pre>
+<p>
+Normalize a vector to a mangitude of 1
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>the first longitude</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="parse-points"></a><h3>parse_points ()</h3>
+<pre class="programlisting"><a href="grits-grits-util.html#GritsPoint"><span class="returnvalue">GritsPoints</span></a> *       parse_points                        (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group_sep</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *point_sep</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *coord_sep</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-util.html#GritsBounds" title="struct GritsBounds"><span class="type">GritsBounds</span></a> *bounds</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-util.html#GritsPoint" title="struct GritsPoint"><span class="type">GritsPoint</span></a> *center</code></em>);</pre>
+<p>
+Parse a string of the form:
+  string -&gt; group [<em class="parameter"><code>group_sep</code></em> group] ...
+  group  -&gt; point [<em class="parameter"><code>point_sep</code></em> point] ...
+  point  -&gt; latitude <em class="parameter"><code>coord_sep</code></em> longitude [<em class="parameter"><code>coord_sep</code></em> elevation]
+</p>
+<p>
+For example
+  parse_points("30,-80 30,-120 50,-120 50,-80", "\t", " ", ",");
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>String representation of the points</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group_sep</code></em> :</span></p></td>
+<td>Group separator</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>point_sep</code></em> :</span></p></td>
+<td>Point separator</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>coord_sep</code></em> :</span></p></td>
+<td>Coordinate separator</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bounds</code></em> :</span></p></td>
+<td>The bounding box of all the points, or NULL</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>center</code></em> :</span></p></td>
+<td>The center of the <em class="parameter"><code>bounds</code></em>, or NULL</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>zero-terminated array of groups of points</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="rad2deg"></a><h3>rad2deg()</h3>
+<pre class="programlisting">#define rad2deg(rad) (((rad)*180.0)/G_PI)
+</pre>
+<p>
+Convert radians to degrees
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rad</code></em> :</span></p></td>
+<td>the angle in radians</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the angle in degrees</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="rad2elev"></a><h3>rad2elev()</h3>
+<pre class="programlisting">#define rad2elev(rad)  ((rad)-EARTH_R)
+</pre>
+<p>
+Convert radius to elevation
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rad</code></em> :</span></p></td>
+<td>the radius in meters</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the elevation in meters above the earth surface</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xyz2ll"></a><h3>xyz2ll ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                xyz2ll                              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> z</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *lon</code></em>);</pre>
+<p>
+Get the latitude and longitude for a x, y, z value.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>the x coordinate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>the y coordinate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>z</code></em> :</span></p></td>
+<td>the z coordinate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat</code></em> :</span></p></td>
+<td>the resulting latitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lon</code></em> :</span></p></td>
+<td>the resulting longitude</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xyz2lle"></a><h3>xyz2lle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                xyz2lle                             (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> z</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *lon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *elev</code></em>);</pre>
+<p>
+Convert a point from x, y and z coordinates to latitude, longitude, and
+elevation.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>the x coordinate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>the y coordinate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>z</code></em> :</span></p></td>
+<td>the z coordinate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat</code></em> :</span></p></td>
+<td>the resulting latitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lon</code></em> :</span></p></td>
+<td>the resulting longitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>elev</code></em> :</span></p></td>
+<td>the resulting elevation</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

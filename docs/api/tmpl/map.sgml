@@ -1,0 +1,44 @@
+<!-- ##### SECTION Title ##### -->
+GritsPluginMap
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GritsPluginMap ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT GritsPluginMapClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### FUNCTION grits_plugin_map_new ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@Returns: 
+
+

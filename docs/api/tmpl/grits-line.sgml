@@ -1,0 +1,55 @@
+<!-- ##### SECTION Title ##### -->
+GritsLine
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GritsLine ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT GritsLineClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### FUNCTION grits_line_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_line_parse ##### -->
+<para>
+
+</para>
+
+@str: 
+@line_sep: 
+@point_sep: 
+@coord_sep: 
+@Returns: 
+
+

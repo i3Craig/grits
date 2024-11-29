@@ -1,0 +1,75 @@
+<!-- ##### SECTION Title ##### -->
+grits-http
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GritsHttp ##### -->
+<para>
+
+</para>
+
+@soup: 
+@prefix: 
+@aborted: 
+
+<!-- ##### FUNCTION grits_http_available ##### -->
+<para>
+
+</para>
+
+@http: 
+@filter: 
+@cache: 
+@extract: 
+@index: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_http_fetch ##### -->
+<para>
+
+</para>
+
+@http: 
+@uri: 
+@local: 
+@mode: 
+@callback: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_http_free ##### -->
+<para>
+
+</para>
+
+@http: 
+
+
+<!-- ##### FUNCTION grits_http_new ##### -->
+<para>
+
+</para>
+
+@prefix: 
+@Returns: 
+
+

@@ -1,0 +1,16 @@
+grits_callback_get_type
+grits_line_get_type
+grits_marker_get_type
+grits_object_get_type
+grits_opengl_get_type
+grits_plugin_elev_get_type
+grits_plugin_env_get_type
+grits_plugin_get_type
+grits_plugin_map_get_type
+grits_plugin_sat_get_type
+grits_plugin_test_get_type
+grits_poly_get_type
+grits_prefs_get_type
+grits_tile_get_type
+grits_viewer_get_type
+grits_volume_get_type

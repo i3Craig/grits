@@ -1,0 +1,231 @@
+<!-- ##### SECTION Title ##### -->
+GritsPrefs
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GritsPrefs ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL GritsPrefs::pref-changed ##### -->
+<para>
+
+</para>
+
+@gritsprefs: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+
+<!-- ##### STRUCT GritsPrefsClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### FUNCTION grits_prefs_get_boolean ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@key: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_prefs_get_boolean_v ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@group: 
+@key: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_prefs_get_double ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@key: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_prefs_get_double_v ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@group: 
+@key: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_prefs_get_integer ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@key: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_prefs_get_integer_v ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@group: 
+@key: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_prefs_get_string ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@key: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_prefs_get_string_v ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@group: 
+@key: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_prefs_new ##### -->
+<para>
+
+</para>
+
+@config: 
+@defaults: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_prefs_set_boolean ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@key: 
+@value: 
+
+
+<!-- ##### FUNCTION grits_prefs_set_boolean_v ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@group: 
+@key: 
+@value: 
+
+
+<!-- ##### FUNCTION grits_prefs_set_double ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@key: 
+@value: 
+
+
+<!-- ##### FUNCTION grits_prefs_set_double_v ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@group: 
+@key: 
+@value: 
+
+
+<!-- ##### FUNCTION grits_prefs_set_integer ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@key: 
+@value: 
+
+
+<!-- ##### FUNCTION grits_prefs_set_integer_v ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@group: 
+@key: 
+@value: 
+
+
+<!-- ##### FUNCTION grits_prefs_set_string ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@key: 
+@string: 
+
+
+<!-- ##### FUNCTION grits_prefs_set_string_v ##### -->
+<para>
+
+</para>
+
+@prefs: 
+@group: 
+@key: 
+@string: 
+
+

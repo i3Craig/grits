@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>grits-wms</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch02.html" title="Data Access">
+<link rel="prev" href="grits-grits-http.html" title="grits-http">
+<link rel="next" href="ch03.html" title="Drawing Objects">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="grits-grits-http.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="ch03.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#grits-grits-wms.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#grits-grits-wms.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="grits-grits-wms"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="grits-grits-wms.top_of_page"></a>grits-wms</span></h2>
+<p>grits-wms — Web Map Service</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="grits-grits-wms.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms">GritsWms</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="grits-grits-wms.html#grits-wms-fetch" title="grits_wms_fetch ()">grits_wms_fetch</a>                     (<em class="parameter"><code><a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="type">GritsWms</span></a> *wms</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-data.html#GritsCacheType" title="enum GritsCacheType"><span class="type">GritsCacheType</span></a> mode</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-data.html#GritsChunkCallback" title="GritsChunkCallback ()"><span class="type">GritsChunkCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-wms.html#grits-wms-free" title="grits_wms_free ()">grits_wms_free</a>                      (<em class="parameter"><code><a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="type">GritsWms</span></a> *wms</code></em>);
+<a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="returnvalue">GritsWms</span></a> *          <a class="link" href="grits-grits-wms.html#grits-wms-new" title="grits_wms_new ()">grits_wms_new</a>                       (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri_prefix</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri_layer</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri_format</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *prefix</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *extension</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="grits-grits-wms.description"></a><h2>Description</h2>
+<p>
+Provides an API for accessing image tiles form a Web Map Service (WMS)
+server. <a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="type">GritsWms</span></a> integrates closely with <a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a>. The remote server must
+support the EPSG:4326 cartographic projection.
+</p>
+</div>
+<div class="refsect1">
+<a name="grits-grits-wms.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GritsWms"></a><h3>GritsWms</h3>
+<pre class="programlisting">typedef struct {
+	GritsHttp *http;
+	gchar *uri_prefix;
+	gchar *uri_layer;
+	gchar *uri_format;
+	gchar *extension;
+	gint   width;
+	gint   height;
+} GritsWms;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-wms-fetch"></a><h3>grits_wms_fetch ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             grits_wms_fetch                     (<em class="parameter"><code><a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="type">GritsWms</span></a> *wms</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-data.html#GritsCacheType" title="enum GritsCacheType"><span class="type">GritsCacheType</span></a> mode</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-data.html#GritsChunkCallback" title="GritsChunkCallback ()"><span class="type">GritsChunkCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Fetch a image coresponding to a <a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> from a WMS server.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wms</code></em> :</span></p></td>
+<td>the <a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="type">GritsWms</span></a> to fetch the data from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tile</code></em> :</span></p></td>
+<td>a <a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> representing the area to be fetched</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>the update type to use when fetching data</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>callback to call when a chunk of data is received</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data to pass to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the path to the local file.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-wms-free"></a><h3>grits_wms_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_wms_free                      (<em class="parameter"><code><a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="type">GritsWms</span></a> *wms</code></em>);</pre>
+<p>
+Free resources used by <em class="parameter"><code>wms</code></em> and cancel any pending requests.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>wms</code></em> :</span></p></td>
+<td>the <a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="type">GritsWms</span></a> to free</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-wms-new"></a><h3>grits_wms_new ()</h3>
+<pre class="programlisting"><a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="returnvalue">GritsWms</span></a> *          grits_wms_new                       (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri_prefix</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri_layer</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri_format</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *prefix</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *extension</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+<p>
+Creates a <a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="type">GritsWms</span></a> for some layer on a WMS server. The returned <a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="type">GritsWms</span></a>
+stores information about the images so it does not need to be entered each
+time a images is fetched.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri_prefix</code></em> :</span></p></td>
+<td>the base URL for the WMS server</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri_layer</code></em> :</span></p></td>
+<td>the layer the images should be fetched from (wms LAYERS)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri_format</code></em> :</span></p></td>
+<td>the format the images should be fetch in (wms FORMAT)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefix</code></em> :</span></p></td>
+<td>prefix to use for local files</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extension</code></em> :</span></p></td>
+<td>file extension for local files, should correspond to <em class="parameter"><code>uri_format</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>width in pixels for downloaded images (wms WIDTH)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>height in pixels for downloaded images (wms HEIGHT)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="grits-grits-wms.html#GritsWms" title="GritsWms"><span class="type">GritsWms</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

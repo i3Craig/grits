@@ -1,0 +1,44 @@
+<!-- ##### SECTION Title ##### -->
+GritsPluginSat
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GritsPluginSat ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT GritsPluginSatClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### FUNCTION grits_plugin_sat_new ##### -->
+<para>
+
+</para>
+
+@viewer: 
+@Returns: 
+
+

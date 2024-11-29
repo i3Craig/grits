@@ -1,0 +1,506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gpqueue</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch05.html" title="Utilities">
+<link rel="prev" href="ch05.html" title="Utilities">
+<link rel="next" href="grits-roam.html" title="roam">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch05.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="grits-roam.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#grits-gpqueue.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#grits-gpqueue.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="grits-gpqueue"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="grits-gpqueue.top_of_page"></a>gpqueue</span></h2>
+<p>gpqueue — Priority queue implemention</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="grits-gpqueue.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue">GPQueue</a>;
+typedef             <a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle">GPQueueHandle</a>;
+                    <a class="link" href="grits-gpqueue.html#GPQueueNode" title="GPQueueNode">GPQueueNode</a>;
+<span class="returnvalue">void</span>                <a class="link" href="grits-gpqueue.html#g-pqueue-clear" title="g_pqueue_clear ()">g_pqueue_clear</a>                      (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-gpqueue.html#g-pqueue-foreach" title="g_pqueue_foreach ()">g_pqueue_foreach</a>                    (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GFunc"><span class="type">GFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-gpqueue.html#g-pqueue-free" title="g_pqueue_free ()">g_pqueue_free</a>                       (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         <a class="link" href="grits-gpqueue.html#g-pqueue-get-array" title="g_pqueue_get_array ()">g_pqueue_get_array</a>                  (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="grits-gpqueue.html#g-pqueue-is-empty" title="g_pqueue_is_empty ()">g_pqueue_is_empty</a>                   (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);
+<a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="returnvalue">GPQueue</span></a> *           <a class="link" href="grits-gpqueue.html#g-pqueue-new" title="g_pqueue_new ()">g_pqueue_new</a>                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GCompareDataFunc"><span class="type">GCompareDataFunc</span></a> compare_func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *compare_userdata</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="grits-gpqueue.html#g-pqueue-peek" title="g_pqueue_peek ()">g_pqueue_peek</a>                       (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="grits-gpqueue.html#g-pqueue-pop" title="g_pqueue_pop ()">g_pqueue_pop</a>                        (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-gpqueue.html#g-pqueue-priority-changed" title="g_pqueue_priority_changed ()">g_pqueue_priority_changed</a>           (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="type">GPQueueHandle</span></a> entry</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-gpqueue.html#g-pqueue-priority-decreased" title="g_pqueue_priority_decreased ()">g_pqueue_priority_decreased</a>         (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="type">GPQueueHandle</span></a> entry</code></em>);
+<a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="returnvalue">GPQueueHandle</span></a>       <a class="link" href="grits-gpqueue.html#g-pqueue-push" title="g_pqueue_push ()">g_pqueue_push</a>                       (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-gpqueue.html#g-pqueue-remove" title="g_pqueue_remove ()">g_pqueue_remove</a>                     (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="type">GPQueueHandle</span></a> entry</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="grits-gpqueue.description"></a><h2>Description</h2>
+<p>
+</p>
+<p>
+The <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> structure and its associated functions provide a sorted
+collection of objects. Entries can be inserted in any order and at any time,
+and an entry's priority can be changed after it has been inserted into the
+queue. Entries are supposed to be removed one at a time in order of priority
+with <a class="link" href="grits-gpqueue.html#g-pqueue-pop" title="g_pqueue_pop ()"><code class="function">g_pqueue_pop()</code></a>, but deleting entries out of order is possible.
+</p>
+<p>
+</p>
+<p>
+The entries <span class="emphasis"><em>cannot</em></span> be iterated over in any way other
+than removing them one by one in order of priority, but when doing that,
+this structure is far more efficient than sorted lists or balanced trees,
+which on the other hand do not suffer from this restriction.
+</p>
+<p>
+</p>
+<p>
+You will want to be very careful with calls that use <a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="type">GPQueueHandle</span></a>.
+Handles immediately become invalid when an entry is removed from a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>,
+but the current implementation cannot detect this and will do unfortunate
+things to undefined memory locations if you try to use an invalid handle.
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+    Internally, <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> currently uses a Fibonacci heap to store
+    the entries. This implementation detail may change.
+  </p>
+</div>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="grits-gpqueue.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GPQueue"></a><h3>GPQueue</h3>
+<pre class="programlisting">typedef struct _GPQueue GPQueue;</pre>
+<p>
+An opaque structure representing a priority queue.
+</p>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GPQueueHandle"></a><h3>GPQueueHandle</h3>
+<pre class="programlisting">typedef GPQueueNode* GPQueueHandle;
+</pre>
+<p>
+An opaque value representing one entry in a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.
+</p>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GPQueueNode"></a><h3>GPQueueNode</h3>
+<pre class="programlisting">typedef struct _GPQueueNode GPQueueNode;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-clear"></a><h3>g_pqueue_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_pqueue_clear                      (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);</pre>
+<p>
+Removes all entries from a <em class="parameter"><code>pqueue</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-foreach"></a><h3>g_pqueue_foreach ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_pqueue_foreach                    (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GFunc"><span class="type">GFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Calls func for each element in the pqueue passing user_data to the function.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td> a <a href="http://library.gnome.org/devel/glib/unstable/glib-Double-ended-Queues.html#GQueue"><span class="type">GQueue</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>the function to call for each element's data</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data to pass to func</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-free"></a><h3>g_pqueue_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_pqueue_free                       (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);</pre>
+<p>
+Deallocates the memory used by <em class="parameter"><code>pqueue</code></em> itself, but not any memory pointed
+to by the data pointers of its entries.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-get-array"></a><h3>g_pqueue_get_array ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         g_pqueue_get_array                  (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);</pre>
+<p>
+Construct a GPtrArray for the items in pqueue. This can be useful when
+updating the priorities of all the elements in pqueue.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td> a <a href="http://library.gnome.org/devel/glib/unstable/glib-Double-ended-Queues.html#GQueue"><span class="type">GQueue</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A GPtrArray containing a pointer to each item in pqueue</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-is-empty"></a><h3>g_pqueue_is_empty ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            g_pqueue_is_empty                   (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);</pre>
+<p>
+Returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the queue is empty.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the queue is empty.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-new"></a><h3>g_pqueue_new ()</h3>
+<pre class="programlisting"><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="returnvalue">GPQueue</span></a> *           g_pqueue_new                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GCompareDataFunc"><span class="type">GCompareDataFunc</span></a> compare_func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *compare_userdata</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>compare_func</code></em> :</span></p></td>
+<td>the <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GCompareDataFunc"><span class="type">GCompareDataFunc</span></a> used to sort the new priority queue.
+This function is passed two elements of the queue and should return 0 if
+they are equal, a negative value if the first comes before the second, and
+a positive value if the second comes before the first.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>compare_userdata</code></em> :</span></p></td>
+<td>user data passed to <em class="parameter"><code>compare_func</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-peek"></a><h3>g_pqueue_peek ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            g_pqueue_peek                       (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);</pre>
+<p>
+Returns the topmost entry's data pointer, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the queue is empty.
+</p>
+<p>
+If you need to tell the difference between an empty queue and a queue
+that happens to have a <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> pointer at the top, check if the queue is
+empty first.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the topmost entry's data pointer, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the queue is empty.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-pop"></a><h3>g_pqueue_pop ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            g_pqueue_pop                        (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>);</pre>
+<p>
+Removes the topmost entry from a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> and returns its data pointer.
+Calling this on an empty <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> is not an error, but removes nothing
+and returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+</p>
+<p>
+If you need to tell the difference between an empty queue and a queue
+that happens to have a <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> pointer at the top, check if the queue is
+empty first.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the topmost entry's data pointer, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the queue was empty.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-priority-changed"></a><h3>g_pqueue_priority_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_pqueue_priority_changed           (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="type">GPQueueHandle</span></a> entry</code></em>);</pre>
+<p>
+Notifies the <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> that the priority of one entry has changed.
+The internal representation is updated accordingly.
+</p>
+<p>
+Make sure that <em class="parameter"><code>entry</code></em> refers to an entry that is actually part of
+<em class="parameter"><code>pqueue</code></em> at the time, otherwise the behavior of this function is
+undefined (expect crashes).
+</p>
+<p>
+Do not attempt to change the priorities of several entries at once.
+Every time a single object is changed, the <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> needs to be updated
+by calling <a class="link" href="grits-gpqueue.html#g-pqueue-priority-changed" title="g_pqueue_priority_changed ()"><code class="function">g_pqueue_priority_changed()</code></a> for that object.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>entry</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="type">GPQueueHandle</span></a> for an entry in <em class="parameter"><code>pqueue</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-priority-decreased"></a><h3>g_pqueue_priority_decreased ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_pqueue_priority_decreased         (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="type">GPQueueHandle</span></a> entry</code></em>);</pre>
+<p>
+Notifies the <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> that the priority of one entry has
+<span class="emphasis"><em>decreased</em></span>.
+</p>
+<p>
+This is a special case of <a class="link" href="grits-gpqueue.html#g-pqueue-priority-changed" title="g_pqueue_priority_changed ()"><code class="function">g_pqueue_priority_changed()</code></a>. If you are absolutely
+sure that the new priority of <em class="parameter"><code>entry</code></em> is lower than it was before, you
+may call this function instead of <a class="link" href="grits-gpqueue.html#g-pqueue-priority-changed" title="g_pqueue_priority_changed ()"><code class="function">g_pqueue_priority_changed()</code></a>.
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+    In the current implementation, an expensive step in
+    <a class="link" href="grits-gpqueue.html#g-pqueue-priority-changed" title="g_pqueue_priority_changed ()"><code class="function">g_pqueue_priority_changed()</code></a> can be skipped if the new priority is known
+    to be lower, leading to an amortized running time of O(1) instead of
+    O(log n). Of course, if the priority is not actually lower, behavior
+    is undefined.
+  </p>
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>entry</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="type">GPQueueHandle</span></a> for an entry in <em class="parameter"><code>pqueue</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-push"></a><h3>g_pqueue_push ()</h3>
+<pre class="programlisting"><a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="returnvalue">GPQueueHandle</span></a>       g_pqueue_push                       (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+Inserts a new entry into a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.
+</p>
+<p>
+The returned handle can be used in calls to <a class="link" href="grits-gpqueue.html#g-pqueue-remove" title="g_pqueue_remove ()"><code class="function">g_pqueue_remove()</code></a> and
+<a class="link" href="grits-gpqueue.html#g-pqueue-priority-changed" title="g_pqueue_priority_changed ()"><code class="function">g_pqueue_priority_changed()</code></a>. Never make such calls for entries that have
+already been removed from the queue. The same <em class="parameter"><code>data</code></em> can be inserted into
+a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> more than once, but remember that in this case,
+<a class="link" href="grits-gpqueue.html#g-pqueue-priority-changed" title="g_pqueue_priority_changed ()"><code class="function">g_pqueue_priority_changed()</code></a> needs to be called for
+<span class="emphasis"><em>every</em></span> handle for that object if its priority changes.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>the object to insert into the priority queue.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a handle for the freshly inserted entry.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-pqueue-remove"></a><h3>g_pqueue_remove ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_pqueue_remove                     (<em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a> *pqueue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="type">GPQueueHandle</span></a> entry</code></em>);</pre>
+<p>
+Removes one entry from a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.
+</p>
+<p>
+Make sure that <em class="parameter"><code>entry</code></em> refers to an entry that is actually part of
+<em class="parameter"><code>pqueue</code></em> at the time, otherwise the behavior of this function is
+undefined (expect crashes).
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pqueue</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueue" title="GPQueue"><span class="type">GPQueue</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>entry</code></em> :</span></p></td>
+<td>a <a class="link" href="grits-gpqueue.html#GPQueueHandle" title="GPQueueHandle"><span class="type">GPQueueHandle</span></a> for an entry in <em class="parameter"><code>pqueue</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.x</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!-- ##### SECTION Title ##### -->
+grits-util
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO EARTH_C ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EARTH_R ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EAST ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO FOV_DIST ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GritsBounds ##### -->
+<para>
+
+</para>
+
+@n: 
+@s: 
+@e: 
+@w: 
+
+<!-- ##### STRUCT GritsPoint ##### -->
+<para>
+
+</para>
+
+@lat: 
+@lon: 
+@elev: 
+
+<!-- ##### MACRO MPPX ##### -->
+<para>
+
+</para>
+
+@dist: 
+
+
+<!-- ##### MACRO NORTH ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO SOUTH ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO WEST ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO azim2lon ##### -->
+<para>
+
+</para>
+
+@azim: 
+
+
+<!-- ##### FUNCTION crossd ##### -->
+<para>
+
+</para>
+
+@a: 
+@b: 
+@out: 
+
+
+<!-- ##### FUNCTION crossd3 ##### -->
+<para>
+
+</para>
+
+@a: 
+@b: 
+@c: 
+@out: 
+
+
+<!-- ##### MACRO deg2rad ##### -->
+<para>
+
+</para>
+
+@deg: 
+
+
+<!-- ##### FUNCTION distd ##### -->
+<para>
+
+</para>
+
+@a: 
+@b: 
+@Returns: 
+
+
+<!-- ##### MACRO elev2rad ##### -->
+<para>
+
+</para>
+
+@elev: 
+
+
+<!-- ##### FUNCTION free_points ##### -->
+<para>
+
+</para>
+
+@points: 
+
+
+<!-- ##### FUNCTION grits_bounds_set_bounds ##### -->
+<para>
+
+</para>
+
+@bounds: 
+@n: 
+@s: 
+@e: 
+@w: 
+
+
+<!-- ##### FUNCTION grits_point_set_lle ##### -->
+<para>
+
+</para>
+
+@point: 
+@lat: 
+@lon: 
+@elev: 
+
+
+<!-- ##### MACRO incl2lat ##### -->
+<para>
+
+</para>
+
+@incl: 
+
+
+<!-- ##### MACRO lat2incl ##### -->
+<para>
+
+</para>
+
+@lat: 
+
+
+<!-- ##### FUNCTION lengthd ##### -->
+<para>
+
+</para>
+
+@a: 
+@Returns: 
+
+
+<!-- ##### FUNCTION ll2m ##### -->
+<para>
+
+</para>
+
+@lon_dist: 
+@lat: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lle2xyz ##### -->
+<para>
+
+</para>
+
+@lat: 
+@lon: 
+@elev: 
+@x: 
+@y: 
+@z: 
+
+
+<!-- ##### MACRO lon2azim ##### -->
+<para>
+
+</para>
+
+@lon: 
+
+
+<!-- ##### FUNCTION lon_avg ##### -->
+<para>
+
+</para>
+
+@a: 
+@b: 
+@Returns: 
+
+
+<!-- ##### FUNCTION normd ##### -->
+<para>
+
+</para>
+
+@a: 
+
+
+<!-- ##### FUNCTION parse_points ##### -->
+<para>
+
+</para>
+
+@string: 
+@group_sep: 
+@point_sep: 
+@coord_sep: 
+@bounds: 
+@center: 
+@Returns: 
+
+
+<!-- ##### MACRO rad2deg ##### -->
+<para>
+
+</para>
+
+@rad: 
+
+
+<!-- ##### MACRO rad2elev ##### -->
+<para>
+
+</para>
+
+@rad: 
+
+
+<!-- ##### FUNCTION xyz2ll ##### -->
+<para>
+
+</para>
+
+@x: 
+@y: 
+@z: 
+@lat: 
+@lon: 
+
+
+<!-- ##### FUNCTION xyz2lle ##### -->
+<para>
+
+</para>
+
+@x: 
+@y: 
+@z: 
+@lat: 
+@lon: 
+@elev: 
+
+

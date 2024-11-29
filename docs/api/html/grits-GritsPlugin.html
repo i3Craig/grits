@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GritsPlugin</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch04.html" title="Plugins">
+<link rel="prev" href="ch04.html" title="Plugins">
+<link rel="next" href="GritsPluginElev.html" title="GritsPluginElev">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch04.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="GritsPluginElev.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#grits-GritsPlugin.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#grits-GritsPlugin.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="grits-GritsPlugin"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="grits-GritsPlugin.top_of_page"></a>GritsPlugin</span></h2>
+<p>GritsPlugin — Plugin support</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="grits-GritsPlugin.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">GritsPlugin</span> *       (<a class="link" href="grits-GritsPlugin.html#GritsPluginConstructor" title="GritsPluginConstructor ()">*GritsPluginConstructor</a>)           (<em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);
+struct              <a class="link" href="grits-GritsPlugin.html#GritsPluginInterface" title="struct GritsPluginInterface">GritsPluginInterface</a>;
+struct              <a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins">GritsPlugins</a>;
+<a href="http://developer.gnome.org/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="grits-GritsPlugin.html#grits-plugin-get-config" title="grits_plugin_get_config ()">grits_plugin_get_config</a>             (<em class="parameter"><code><span class="type">GritsPlugin</span> *plugin</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="grits-GritsPlugin.html#grits-plugin-get-description" title="grits_plugin_get_description ()">grits_plugin_get_description</a>        (<em class="parameter"><code><span class="type">GritsPlugin</span> *plugin</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="grits-GritsPlugin.html#grits-plugin-get-name" title="grits_plugin_get_name ()">grits_plugin_get_name</a>               (<em class="parameter"><code><span class="type">GritsPlugin</span> *plugin</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="grits-GritsPlugin.html#grits-plugins-available" title="grits_plugins_available ()">grits_plugins_available</a>             (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="grits-GritsPlugin.html#grits-plugins-disable" title="grits_plugins_disable ()">grits_plugins_disable</a>               (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+<span class="returnvalue">GritsPlugin</span> *       <a class="link" href="grits-GritsPlugin.html#grits-plugins-enable" title="grits_plugins_enable ()">grits_plugins_enable</a>                (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-GritsPlugin.html#grits-plugins-foreach" title="grits_plugins_foreach ()">grits_plugins_foreach</a>               (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GCallback"><span class="type">GCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-GritsPlugin.html#grits-plugins-free" title="grits_plugins_free ()">grits_plugins_free</a>                  ();
+<span class="returnvalue">GritsPlugin</span> *       <a class="link" href="grits-GritsPlugin.html#grits-plugins-load" title="grits_plugins_load ()">grits_plugins_load</a>                  (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="grits-GritsPlugin.html#grits-plugins-load-enabled" title="grits_plugins_load_enabled ()">grits_plugins_load_enabled</a>          (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);
+<a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="returnvalue">GritsPlugins</span></a> *      <a class="link" href="grits-GritsPlugin.html#grits-plugins-new" title="grits_plugins_new ()">grits_plugins_new</a>                   (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="grits-GritsPlugin.html#grits-plugins-unload" title="grits_plugins_unload ()">grits_plugins_unload</a>                (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="grits-GritsPlugin.description"></a><h2>Description</h2>
+<p>
+A plugin in grits is a GObject which implements the GritsPlugin interface.
+Additionally, each plugin is compiled to a separate shared object and loaded
+conditionally at runtime when the plugin is enabled. Each such shared object
+should define a <a class="link" href="grits-GritsPlugin.html#GritsPluginConstructor" title="GritsPluginConstructor ()"><code class="function">GritsPluginConstructor()</code></a> function named
+grits_plugin_NAME_new which will be called when loading the plugin.
+</p>
+<p>
+Almost all grits functionality is provided by a set of plugins. Each plugin
+can how however much it likes. The interface between plugins and the rest of
+grits is intentionally very thin. Since grits is the library, plugins must
+manually do everything. For instance, to draw something in the world, the
+plugin must add an object to the viewer. Likewise, plugins need to
+register callbacks on the viewer in order to receive updates, very little
+happens automagically.
+</p>
+<p>
+That being said, one thing that plugins do do automagically, is provide a
+configuration area.  Since the plugin doesn't know what application is is
+being loaded form, it is better for the application to ask the plugin for
+it's confirmation area, not the other way around.
+</p>
+</div>
+<div class="refsect1">
+<a name="grits-GritsPlugin.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GritsPluginConstructor"></a><h3>GritsPluginConstructor ()</h3>
+<pre class="programlisting"><span class="returnvalue">GritsPlugin</span> *       (*GritsPluginConstructor)           (<em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);</pre>
+<p>
+Create a new instance of a plugin. Each plugin should supply a constructor named
+grits_plugin_NAME_new in it's shared object.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>viewer</code></em> :</span></p></td>
+<td>the viewer the plugin is associated with</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefs</code></em> :</span></p></td>
+<td>preferences the plugin can use for storing informtion</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new plugin</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsPluginInterface"></a><h3>struct GritsPluginInterface</h3>
+<pre class="programlisting">struct GritsPluginInterface {
+	GTypeInterface parent_iface;
+
+	/* Virtual data */
+	const gchar *name;
+	const gchar *description;
+
+	/* Virtual functions */
+	GtkWidget *(*get_config)(GritsPlugin *plugin);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsPlugins"></a><h3>struct GritsPlugins</h3>
+<pre class="programlisting">struct GritsPlugins {
+	gchar      *dir;
+	GList      *plugins;
+	GritsPrefs *prefs;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugin-get-config"></a><h3>grits_plugin_get_config ()</h3>
+<pre class="programlisting"><a href="http://developer.gnome.org/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         grits_plugin_get_config             (<em class="parameter"><code><span class="type">GritsPlugin</span> *plugin</code></em>);</pre>
+<p>
+Each plugin can provide a configuration area. Applications using grits
+should display this configuration area to the user so they can modify the
+behavior of the plugin.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>the plugin</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a configuration widget for the plugin</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugin-get-description"></a><h3>grits_plugin_get_description ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       grits_plugin_get_description        (<em class="parameter"><code><span class="type">GritsPlugin</span> *plugin</code></em>);</pre>
+<p>
+Get a description of a plugin
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>the plugin</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a description of the plugin</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugin-get-name"></a><h3>grits_plugin_get_name ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       grits_plugin_get_name               (<em class="parameter"><code><span class="type">GritsPlugin</span> *plugin</code></em>);</pre>
+<p>
+Get a short human readable name for a plugin, this is not necessarily the
+same as the name of the shared object.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>the plugin</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a short name for the plugin</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugins-available"></a><h3>grits_plugins_available ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             grits_plugins_available             (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>);</pre>
+<p>
+Search the plugin directory for shared objects which can be loaded as
+plugins.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>the plugin source</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the list of available plugins</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugins-disable"></a><h3>grits_plugins_disable ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            grits_plugins_disable               (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+Unload a plugin and save it's loaded/unloaded state in the <a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> stored
+in <span class="type">plugins</span>.
+</p>
+<p>
+See also: <a class="link" href="grits-GritsPlugin.html#grits-plugins-unload" title="grits_plugins_unload ()"><code class="function">grits_plugins_unload()</code></a>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>the plugins source</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the plugin to unload</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugins-enable"></a><h3>grits_plugins_enable ()</h3>
+<pre class="programlisting"><span class="returnvalue">GritsPlugin</span> *       grits_plugins_enable                (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);</pre>
+<p>
+Load a plugin and save it's loaded/unloaded state in the <a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> stored in
+<span class="type">plugins</span>.
+</p>
+<p>
+See also: <a class="link" href="grits-GritsPlugin.html#grits-plugins-load" title="grits_plugins_load ()"><code class="function">grits_plugins_load()</code></a>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>the plugins source</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the plugin to load</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>viewer</code></em> :</span></p></td>
+<td>a <a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> to pass to the plugins constructor</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefs</code></em> :</span></p></td>
+<td>a <a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> to pass to the plugins constructor</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new plugin</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugins-foreach"></a><h3>grits_plugins_foreach ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_plugins_foreach               (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#GCallback"><span class="type">GCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Iterate over all plugins loaded by the plugins source
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>the plugins source</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>a function to call on each plugin</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data to pass to the function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugins-free"></a><h3>grits_plugins_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_plugins_free                  ();</pre>
+<p>
+Free data used by a plugin source
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>the <a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> to free</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugins-load"></a><h3>grits_plugins_load ()</h3>
+<pre class="programlisting"><span class="returnvalue">GritsPlugin</span> *       grits_plugins_load                  (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);</pre>
+<p>
+<em class="parameter"><code>name</code></em> should be the name of the shared object without the file extension.
+This is the same as what is returned by <a class="link" href="grits-GritsPlugin.html#grits-plugins-available" title="grits_plugins_available ()"><code class="function">grits_plugins_available()</code></a>.
+</p>
+<p>
+When loading plugins, the <em class="parameter"><code>prefs</code></em> argument is used, not the <a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> stored
+in <em class="parameter"><code>plugins</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>the plugins source</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the plugin to load</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>viewer</code></em> :</span></p></td>
+<td>a <a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> to pass to the plugins constructor</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefs</code></em> :</span></p></td>
+<td>a <a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> to pass to the plugins constructor</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new plugin</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugins-load-enabled"></a><h3>grits_plugins_load_enabled ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             grits_plugins_load_enabled          (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);</pre>
+<p>
+Load all enabled which have previously been enabled.
+</p>
+<p>
+See also: <a class="link" href="grits-GritsPlugin.html#grits-plugins-load" title="grits_plugins_load ()"><code class="function">grits_plugins_load()</code></a>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>the plugins source</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>viewer</code></em> :</span></p></td>
+<td>a <a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> to pass to the plugins constructor</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefs</code></em> :</span></p></td>
+<td>a <a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> to pass to the plugins constructor</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a list of all loaded plugins</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugins-new"></a><h3>grits_plugins_new ()</h3>
+<pre class="programlisting"><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="returnvalue">GritsPlugins</span></a> *      grits_plugins_new                   (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);</pre>
+<p>
+Create a new plugin source. If <em class="parameter"><code>prefs</code></em> is not <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the state of the plugins
+will be saved when they are either enabled or disabled.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dir</code></em> :</span></p></td>
+<td>the directory to search for plugins in</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefs</code></em> :</span></p></td>
+<td>a <a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> to save the state of plugins, or NULL</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new plugin source</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugins-unload"></a><h3>grits_plugins_unload ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            grits_plugins_unload                (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+Unload a plugin and free any associated data.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>the plugins source</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the plugin to unload</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

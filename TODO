@@ -1,0 +1,51 @@
+Miscellaneous
+-------------
+- Use VertexArrays/VertexBufferObjects/DisplayLists/etc
+- Plugins can time/location references too a tree-view
+- Organize examples and demo programs
+	- Add real examples do dist
+
+GritsObject:
+  - Improve GritsMarker
+  - Add min/max LOD
+  mabye: ?
+    - Add linked list node to GritsObject for add/remove
+
+GritsTile:
+  - Prioritize tile updates
+  - Only updates visible tiles
+  - Render correct tile resolution when zooming out
+  how:
+    - Update tiles after each render
+    - Use backfaces to only fetch rendered triangles for each tile
+    - Only split/update/load tiles that are used
+
+Roam:
+  - Find a better way to fix great circle errors
+  - Improve garbage collection (use timeout?)
+  - Refactor height functions
+  - Fix texture rendering at edges w/ linear filtering
+
+Improve plugins
+---------------
+env:
+	- Config panel
+  - Add atmosphere, sun, etc
+
+elev:
+	- Config panel
+	- Runtime option to draw heights
+
+sat:
+	- Config panel
+
+map:
+	- Config panel
+  - Use local rendering instead of pixmaps
+
+gps:
+  - Create/test it
+  - Config: follow position, draw trace, leave marker
+
+
+vim: ft=txt ts=2 sw=2 sts=2 spell!

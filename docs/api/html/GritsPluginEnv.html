@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GritsPluginEnv</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch04.html" title="Plugins">
+<link rel="prev" href="GritsPluginElev.html" title="GritsPluginElev">
+<link rel="next" href="GritsPluginMap.html" title="GritsPluginMap">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GritsPluginElev.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="GritsPluginMap.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GritsPluginEnv.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GritsPluginEnv.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GritsPluginEnv.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GritsPluginEnv.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GritsPluginEnv"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GritsPluginEnv.top_of_page"></a>GritsPluginEnv</span></h2>
+<p>GritsPluginEnv — Environment plugin</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GritsPluginEnv.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="GritsPluginEnv.html#GritsPluginEnv-struct" title="struct GritsPluginEnv">GritsPluginEnv</a>;
+struct              <a class="link" href="GritsPluginEnv.html#GritsPluginEnvClass" title="struct GritsPluginEnvClass">GritsPluginEnvClass</a>;
+<a class="link" href="GritsPluginEnv.html" title="GritsPluginEnv"><span class="returnvalue">GritsPluginEnv</span></a> *    <a class="link" href="GritsPluginEnv.html#grits-plugin-env-new" title="grits_plugin_env_new ()">grits_plugin_env_new</a>                (<em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsPluginEnv.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GritsPluginEnv
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsPluginEnv.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GritsPluginEnv implements
+ GritsPlugin.</p>
+</div>
+<div class="refsect1">
+<a name="GritsPluginEnv.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="GritsPluginEnv.html" title="GritsPluginEnv"><span class="type">GritsPluginEnv</span></a> provides environmental information such as sky images. It can
+also paint a blank overlay on the surface so that other plugins can draw
+transparent overlays nicely.
+</p>
+</div>
+<div class="refsect1">
+<a name="GritsPluginEnv.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GritsPluginEnv-struct"></a><h3>struct GritsPluginEnv</h3>
+<pre class="programlisting">struct GritsPluginEnv;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsPluginEnvClass"></a><h3>struct GritsPluginEnvClass</h3>
+<pre class="programlisting">struct GritsPluginEnvClass {
+	GObjectClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugin-env-new"></a><h3>grits_plugin_env_new ()</h3>
+<pre class="programlisting"><a class="link" href="GritsPluginEnv.html" title="GritsPluginEnv"><span class="returnvalue">GritsPluginEnv</span></a> *    grits_plugin_env_new                (<em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);</pre>
+<p>
+Create a new instance of the environment plugin.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>viewer</code></em> :</span></p></td>
+<td>the <a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> to use for drawing</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefs</code></em> :</span></p></td>
+<td>the <a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> for storing configurations</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="GritsPluginEnv.html" title="GritsPluginEnv"><span class="type">GritsPluginEnv</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GritsMarker</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch03.html" title="Drawing Objects">
+<link rel="prev" href="GritsTile.html" title="GritsTile">
+<link rel="next" href="GritsCallback.html" title="GritsCallback">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GritsTile.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="GritsCallback.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GritsMarker.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GritsMarker.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GritsMarker.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GritsMarker"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GritsMarker.top_of_page"></a>GritsMarker</span></h2>
+<p>GritsMarker — Single point markers</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GritsMarker.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="GritsMarker.html#GRITS-MARKER-DMASK-ALL:CAPS" title="GRITS_MARKER_DMASK_ALL">GRITS_MARKER_DMASK_ALL</a>
+#define             <a class="link" href="GritsMarker.html#GRITS-MARKER-DMASK-DIRECTIONAL:CAPS" title="GRITS_MARKER_DMASK_DIRECTIONAL">GRITS_MARKER_DMASK_DIRECTIONAL</a>
+#define             <a class="link" href="GritsMarker.html#GRITS-MARKER-DMASK-ICON:CAPS" title="GRITS_MARKER_DMASK_ICON">GRITS_MARKER_DMASK_ICON</a>
+#define             <a class="link" href="GritsMarker.html#GRITS-MARKER-DMASK-LABEL:CAPS" title="GRITS_MARKER_DMASK_LABEL">GRITS_MARKER_DMASK_LABEL</a>
+#define             <a class="link" href="GritsMarker.html#GRITS-MARKER-DMASK-NONE:CAPS" title="GRITS_MARKER_DMASK_NONE">GRITS_MARKER_DMASK_NONE</a>
+#define             <a class="link" href="GritsMarker.html#GRITS-MARKER-DMASK-POINT:CAPS" title="GRITS_MARKER_DMASK_POINT">GRITS_MARKER_DMASK_POINT</a>
+struct              <a class="link" href="GritsMarker.html#GritsMarker-struct" title="struct GritsMarker">GritsMarker</a>;
+struct              <a class="link" href="GritsMarker.html#GritsMarkerClass" title="struct GritsMarkerClass">GritsMarkerClass</a>;
+<a class="link" href="GritsMarker.html" title="GritsMarker"><span class="returnvalue">GritsMarker</span></a> *       <a class="link" href="GritsMarker.html#grits-marker-icon-new" title="grits_marker_icon_new ()">grits_marker_icon_new</a>               (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> angle</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> flip</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> display_mask</code></em>);
+<a class="link" href="GritsMarker.html" title="GritsMarker"><span class="returnvalue">GritsMarker</span></a> *       <a class="link" href="GritsMarker.html#grits-marker-new" title="grits_marker_new ()">grits_marker_new</a>                    (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsMarker.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GritsObject.html" title="GritsObject">GritsObject</a>
+         +----GritsMarker
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsMarker.description"></a><h2>Description</h2>
+<p>
+Each <a class="link" href="GritsMarker.html" title="GritsMarker"><span class="type">GritsMarker</span></a> represents some point on the earth with some form of
+content. Commonly this is used to mark geographic features such as cities or
+states.
+</p>
+<p>
+While markers represent a place in three dimensions somewhere on, below, or
+above the surface of the earth, they are drawn in 2 dimensions so that they
+look normal and readable by the user. Due to this, GritsObjects should almost
+always be added to the GRITS_LEVEL_OVERLAY level so they are drawn "above" the
+actual earth.
+</p>
+</div>
+<div class="refsect1">
+<a name="GritsMarker.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GRITS-MARKER-DMASK-ALL:CAPS"></a><h3>GRITS_MARKER_DMASK_ALL</h3>
+<pre class="programlisting">#define GRITS_MARKER_DMASK_ALL          (0xffff)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GRITS-MARKER-DMASK-DIRECTIONAL:CAPS"></a><h3>GRITS_MARKER_DMASK_DIRECTIONAL</h3>
+<pre class="programlisting">#define GRITS_MARKER_DMASK_DIRECTIONAL  (0x0010)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GRITS-MARKER-DMASK-ICON:CAPS"></a><h3>GRITS_MARKER_DMASK_ICON</h3>
+<pre class="programlisting">#define GRITS_MARKER_DMASK_ICON         (0x0008)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GRITS-MARKER-DMASK-LABEL:CAPS"></a><h3>GRITS_MARKER_DMASK_LABEL</h3>
+<pre class="programlisting">#define GRITS_MARKER_DMASK_LABEL        (0x0002)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GRITS-MARKER-DMASK-NONE:CAPS"></a><h3>GRITS_MARKER_DMASK_NONE</h3>
+<pre class="programlisting">#define GRITS_MARKER_DMASK_NONE         (0x0001)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GRITS-MARKER-DMASK-POINT:CAPS"></a><h3>GRITS_MARKER_DMASK_POINT</h3>
+<pre class="programlisting">#define GRITS_MARKER_DMASK_POINT        (0x0004)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsMarker-struct"></a><h3>struct GritsMarker</h3>
+<pre class="programlisting">struct GritsMarker;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsMarkerClass"></a><h3>struct GritsMarkerClass</h3>
+<pre class="programlisting">struct GritsMarkerClass {
+	GritsObjectClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-marker-icon-new"></a><h3>grits_marker_icon_new ()</h3>
+<pre class="programlisting"><a class="link" href="GritsMarker.html" title="GritsMarker"><span class="returnvalue">GritsMarker</span></a> *       grits_marker_icon_new               (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> angle</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> flip</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> display_mask</code></em>);</pre>
+<p>
+Create a new marker with a label, point, icon (png), or any
+combination of the above.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>The label to display if GRITS_MARKER_DMASK_LABEL is set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>The filename of the icon</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>angle</code></em> :</span></p></td>
+<td>The angle to rotate the icon (0 is north)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flip</code></em> :</span></p></td>
+<td>Whether to flip the image so that it's never upside down.
+Useful for non-symmetric icons which have an "up".</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display_mask</code></em> :</span></p></td>
+<td>A bitmask which specifies which items to display.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="GritsMarker.html" title="GritsMarker"><span class="type">GritsMarker</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-marker-new"></a><h3>grits_marker_new ()</h3>
+<pre class="programlisting"><a class="link" href="GritsMarker.html" title="GritsMarker"><span class="returnvalue">GritsMarker</span></a> *       grits_marker_new                    (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);</pre>
+<p>
+Create a new GritsMarker which shows the given label when drawn.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>a short description of the marker</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="GritsMarker.html" title="GritsMarker"><span class="type">GritsMarker</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

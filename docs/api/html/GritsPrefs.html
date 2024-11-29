@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GritsPrefs</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="GritsOpenGL.html" title="GritsOpenGL">
+<link rel="next" href="grits-grits-util.html" title="grits-util">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GritsOpenGL.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="grits-grits-util.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GritsPrefs.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GritsPrefs.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GritsPrefs.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GritsPrefs.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GritsPrefs"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GritsPrefs.top_of_page"></a>GritsPrefs</span></h2>
+<p>GritsPrefs — Persistent preference handing</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GritsPrefs.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="GritsPrefs.html#GritsPrefs-struct" title="struct GritsPrefs">GritsPrefs</a>;
+struct              <a class="link" href="GritsPrefs.html#GritsPrefsClass" title="struct GritsPrefsClass">GritsPrefsClass</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GritsPrefs.html#grits-prefs-get-boolean" title="grits_prefs_get_boolean ()">grits_prefs_get_boolean</a>             (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GritsPrefs.html#grits-prefs-get-boolean-v" title="grits_prefs_get_boolean_v ()">grits_prefs_get_boolean_v</a>           (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="GritsPrefs.html#grits-prefs-get-double" title="grits_prefs_get_double ()">grits_prefs_get_double</a>              (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="GritsPrefs.html#grits-prefs-get-double-v" title="grits_prefs_get_double_v ()">grits_prefs_get_double_v</a>            (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="GritsPrefs.html#grits-prefs-get-integer" title="grits_prefs_get_integer ()">grits_prefs_get_integer</a>             (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="GritsPrefs.html#grits-prefs-get-integer-v" title="grits_prefs_get_integer_v ()">grits_prefs_get_integer_v</a>           (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="GritsPrefs.html#grits-prefs-get-string" title="grits_prefs_get_string ()">grits_prefs_get_string</a>              (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="GritsPrefs.html#grits-prefs-get-string-v" title="grits_prefs_get_string_v ()">grits_prefs_get_string_v</a>            (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="returnvalue">GritsPrefs</span></a> *        <a class="link" href="GritsPrefs.html#grits-prefs-new" title="grits_prefs_new ()">grits_prefs_new</a>                     (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *config</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *defaults</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsPrefs.html#grits-prefs-set-boolean" title="grits_prefs_set_boolean ()">grits_prefs_set_boolean</a>             (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsPrefs.html#grits-prefs-set-boolean-v" title="grits_prefs_set_boolean_v ()">grits_prefs_set_boolean_v</a>           (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsPrefs.html#grits-prefs-set-double" title="grits_prefs_set_double ()">grits_prefs_set_double</a>              (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsPrefs.html#grits-prefs-set-double-v" title="grits_prefs_set_double_v ()">grits_prefs_set_double_v</a>            (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsPrefs.html#grits-prefs-set-integer" title="grits_prefs_set_integer ()">grits_prefs_set_integer</a>             (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsPrefs.html#grits-prefs-set-integer-v" title="grits_prefs_set_integer_v ()">grits_prefs_set_integer_v</a>           (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsPrefs.html#grits-prefs-set-string" title="grits_prefs_set_string ()">grits_prefs_set_string</a>              (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsPrefs.html#grits-prefs-set-string-v" title="grits_prefs_set_string_v ()">grits_prefs_set_string_v</a>            (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsPrefs.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GritsPrefs
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsPrefs.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GritsPrefs.html#GritsPrefs-pref-changed" title='The "pref-changed" signal'>pref-changed</a>"                                   : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsPrefs.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> is used to store and access preferences in grits. It is mostly a
+wrapper around a <a href="http://library.gnome.org/devel/glib/unstable/glib-Key-value-file-parser.html#GKeyFile"><span class="type">GKeyFile</span></a>. Preferences can be stored for the application
+using grits, but may also be stored by grits itself. An example of this are
+whether grits is in online or offline mode. Many <span class="type">GritsPlugin</span>s also
+store preferences.
+</p>
+<p>
+There are two variants of preference functions. The normal variant takes
+group and a key separated by a "/" as they key to the preference. The "_v"
+variant takes the group and the key as separate parameters.
+</p>
+</div>
+<div class="refsect1">
+<a name="GritsPrefs.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GritsPrefs-struct"></a><h3>struct GritsPrefs</h3>
+<pre class="programlisting">struct GritsPrefs;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsPrefsClass"></a><h3>struct GritsPrefsClass</h3>
+<pre class="programlisting">struct GritsPrefsClass {
+	GObjectClass parent_class;
+	
+	/* class members */
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-get-boolean"></a><h3>grits_prefs_get_boolean ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            grits_prefs_get_boolean             (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-get-boolean-v"></a><h3>grits_prefs_get_boolean_v ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            grits_prefs_get_boolean_v           (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-get-double"></a><h3>grits_prefs_get_double ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             grits_prefs_get_double              (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-get-double-v"></a><h3>grits_prefs_get_double_v ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             grits_prefs_get_double_v            (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-get-integer"></a><h3>grits_prefs_get_integer ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                grits_prefs_get_integer             (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-get-integer-v"></a><h3>grits_prefs_get_integer_v ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                grits_prefs_get_integer_v           (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-get-string"></a><h3>grits_prefs_get_string ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             grits_prefs_get_string              (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-get-string-v"></a><h3>grits_prefs_get_string_v ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             grits_prefs_get_string_v            (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-new"></a><h3>grits_prefs_new ()</h3>
+<pre class="programlisting"><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="returnvalue">GritsPrefs</span></a> *        grits_prefs_new                     (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *config</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *defaults</code></em>);</pre>
+<p>
+Create a new preference object for the given <em class="parameter"><code>config</code></em>. If the config does not
+exist the <em class="parameter"><code>defaults</code></em> file is loaded.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>the path to the config file</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>defaults</code></em> :</span></p></td>
+<td>the path to the default config file</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-set-boolean"></a><h3>grits_prefs_set_boolean ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_prefs_set_boolean             (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-set-boolean-v"></a><h3>grits_prefs_set_boolean_v ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_prefs_set_boolean_v           (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-set-double"></a><h3>grits_prefs_set_double ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_prefs_set_double              (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-set-double-v"></a><h3>grits_prefs_set_double_v ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_prefs_set_double_v            (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-set-integer"></a><h3>grits_prefs_set_integer ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_prefs_set_integer             (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-set-integer-v"></a><h3>grits_prefs_set_integer_v ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_prefs_set_integer_v           (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-set-string"></a><h3>grits_prefs_set_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_prefs_set_string              (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-prefs-set-string-v"></a><h3>grits_prefs_set_string_v ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_prefs_set_string_v            (<em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GritsPrefs.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GritsPrefs-pref-changed"></a><h3>The <code class="literal">"pref-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>      *key,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>       type,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    value,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+The ::pref-changed signal is emitted each time a preference is
+changed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefs</code></em> :</span></p></td>
+<td>the preference store.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>the key to the preference.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>the type of the preference that changed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>a pointer to the value of the preference.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

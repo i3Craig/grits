@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GritsOpenGL</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="GritsViewer.html" title="GritsViewer">
+<link rel="next" href="GritsPrefs.html" title="GritsPrefs">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GritsViewer.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="GritsPrefs.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GritsOpenGL.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GritsOpenGL.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GritsOpenGL.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GritsOpenGL.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GritsOpenGL"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GritsOpenGL.top_of_page"></a>GritsOpenGL</span></h2>
+<p>GritsOpenGL — OpenGL based virtual globe</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GritsOpenGL.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="GritsOpenGL.html#GritsOpenGL-struct" title="struct GritsOpenGL">GritsOpenGL</a>;
+struct              <a class="link" href="GritsOpenGL.html#GritsOpenGLClass" title="struct GritsOpenGLClass">GritsOpenGLClass</a>;
+<a class="link" href="GritsViewer.html" title="GritsViewer"><span class="returnvalue">GritsViewer</span></a> *       <a class="link" href="GritsOpenGL.html#grits-opengl-new" title="grits_opengl_new ()">grits_opengl_new</a>                    (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsOpenGL.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk3/GtkObject.html">GtkObject</a>
+               +----<a href="http://developer.gnome.org/gtk/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://developer.gnome.org/gtk/GtkDrawingArea.html">GtkDrawingArea</a>
+                           +----<a class="link" href="GritsViewer.html" title="GritsViewer">GritsViewer</a>
+                                 +----GritsOpenGL
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsOpenGL.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GritsOpenGL implements
+ AtkImplementorIface and  <a href="http://developer.gnome.org/gtk/GtkBuildable.html">GtkBuildable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="GritsOpenGL.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="GritsOpenGL.html" title="GritsOpenGL"><span class="type">GritsOpenGL</span></a> is the core rendering engine used by grits. Theoretically other
+renderers could be writte, but they have not been. GritsOpenGL uses the ROAM
+algorithm for updating surface mesh the planet. The only thing GritsOpenGL
+can actually render on it's own is a wireframe of a sphere.
+</p>
+<p>
+GritsOpenGL requires (at least) OpenGL 2.0.
+</p>
+</div>
+<div class="refsect1">
+<a name="GritsOpenGL.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GritsOpenGL-struct"></a><h3>struct GritsOpenGL</h3>
+<pre class="programlisting">struct GritsOpenGL;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsOpenGLClass"></a><h3>struct GritsOpenGLClass</h3>
+<pre class="programlisting">struct GritsOpenGLClass {
+	GritsViewerClass parent_class;
+
+	/* class members */
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-opengl-new"></a><h3>grits_opengl_new ()</h3>
+<pre class="programlisting"><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="returnvalue">GritsViewer</span></a> *       grits_opengl_new                    (<em class="parameter"><code><a class="link" href="grits-GritsPlugin.html#GritsPlugins" title="struct GritsPlugins"><span class="type">GritsPlugins</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsPrefs.html" title="GritsPrefs"><span class="type">GritsPrefs</span></a> *prefs</code></em>);</pre>
+<p>
+Create a new OpenGL renderer.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>the plugins store to use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefs</code></em> :</span></p></td>
+<td>the preferences object to use</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="GritsOpenGL.html" title="GritsOpenGL"><span class="type">GritsOpenGL</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

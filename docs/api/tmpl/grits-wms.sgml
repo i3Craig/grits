@@ -1,0 +1,71 @@
+<!-- ##### SECTION Title ##### -->
+grits-wms
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GritsWms ##### -->
+<para>
+
+</para>
+
+@http: 
+@uri_prefix: 
+@uri_layer: 
+@uri_format: 
+@extension: 
+@width: 
+@height: 
+
+<!-- ##### FUNCTION grits_wms_fetch ##### -->
+<para>
+
+</para>
+
+@wms: 
+@tile: 
+@mode: 
+@callback: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_wms_free ##### -->
+<para>
+
+</para>
+
+@wms: 
+
+
+<!-- ##### FUNCTION grits_wms_new ##### -->
+<para>
+
+</para>
+
+@uri_prefix: 
+@uri_layer: 
+@uri_format: 
+@prefix: 
+@extension: 
+@width: 
+@height: 
+@Returns: 
+
+

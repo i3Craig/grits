@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GritsPluginTest</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch04.html" title="Plugins">
+<link rel="prev" href="GritsPluginSat.html" title="GritsPluginSat">
+<link rel="next" href="ch05.html" title="Utilities">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GritsPluginSat.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="ch05.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GritsPluginTest.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GritsPluginTest.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GritsPluginTest.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GritsPluginTest.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GritsPluginTest"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GritsPluginTest.top_of_page"></a>GritsPluginTest</span></h2>
+<p>GritsPluginTest — Testing plugin</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GritsPluginTest.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="GritsPluginTest.html#GritsPluginTest-struct" title="struct GritsPluginTest">GritsPluginTest</a>;
+struct              <a class="link" href="GritsPluginTest.html#GritsPluginTestClass" title="struct GritsPluginTestClass">GritsPluginTestClass</a>;
+<a class="link" href="GritsPluginTest.html" title="GritsPluginTest"><span class="returnvalue">GritsPluginTest</span></a> *   <a class="link" href="GritsPluginTest.html#grits-plugin-test-new" title="grits_plugin_test_new ()">grits_plugin_test_new</a>               (<em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsPluginTest.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GritsPluginTest
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsPluginTest.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GritsPluginTest implements
+ GritsPlugin.</p>
+</div>
+<div class="refsect1">
+<a name="GritsPluginTest.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="GritsPluginTest.html" title="GritsPluginTest"><span class="type">GritsPluginTest</span></a> is a testing plugin used during development and as an example
+for how to create a plugin.
+</p>
+</div>
+<div class="refsect1">
+<a name="GritsPluginTest.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GritsPluginTest-struct"></a><h3>struct GritsPluginTest</h3>
+<pre class="programlisting">struct GritsPluginTest;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsPluginTestClass"></a><h3>struct GritsPluginTestClass</h3>
+<pre class="programlisting">struct GritsPluginTestClass {
+	GObjectClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-plugin-test-new"></a><h3>grits_plugin_test_new ()</h3>
+<pre class="programlisting"><a class="link" href="GritsPluginTest.html" title="GritsPluginTest"><span class="returnvalue">GritsPluginTest</span></a> *   grits_plugin_test_new               (<em class="parameter"><code><a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> *viewer</code></em>);</pre>
+<p>
+Create a new instance of the testing plugin.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>viewer</code></em> :</span></p></td>
+<td>the <a class="link" href="GritsViewer.html" title="GritsViewer"><span class="type">GritsViewer</span></a> to use for drawing</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="GritsPluginTest.html" title="GritsPluginTest"><span class="type">GritsPluginTest</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!-- ##### SECTION Title ##### -->
+roam
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT RoamDiamond ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### USER_FUNCTION RoamHeightFunc ##### -->
+<para>
+
+</para>
+
+@lat: 
+@lon: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### STRUCT RoamPoint ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT RoamSphere ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT RoamTriangle ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT RoamView ##### -->
+<para>
+
+</para>
+
+@model: 
+@proj: 
+@view: 
+@version: 
+
+<!-- ##### FUNCTION roam_diamond_add ##### -->
+<para>
+
+</para>
+
+@diamond: 
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_diamond_merge ##### -->
+<para>
+
+</para>
+
+@diamond: 
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_diamond_new ##### -->
+<para>
+
+</para>
+
+@parent0: 
+@parent1: 
+@Returns: 
+
+
+<!-- ##### FUNCTION roam_diamond_remove ##### -->
+<para>
+
+</para>
+
+@diamond: 
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_diamond_update_errors ##### -->
+<para>
+
+</para>
+
+@diamond: 
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_point_add_triangle ##### -->
+<para>
+
+</para>
+
+@point: 
+@triangle: 
+
+
+<!-- ##### FUNCTION roam_point_new ##### -->
+<para>
+
+</para>
+
+@lat: 
+@lon: 
+@elev: 
+@Returns: 
+
+
+<!-- ##### FUNCTION roam_point_remove_triangle ##### -->
+<para>
+
+</para>
+
+@point: 
+@triangle: 
+
+
+<!-- ##### FUNCTION roam_point_update_height ##### -->
+<para>
+
+</para>
+
+@point: 
+
+
+<!-- ##### FUNCTION roam_point_update_projection ##### -->
+<para>
+
+</para>
+
+@point: 
+@view: 
+
+
+<!-- ##### FUNCTION roam_sphere_draw ##### -->
+<para>
+
+</para>
+
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_sphere_draw_normals ##### -->
+<para>
+
+</para>
+
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_sphere_free ##### -->
+<para>
+
+</para>
+
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_sphere_get_intersect ##### -->
+<para>
+
+</para>
+
+@sphere: 
+@all: 
+@n: 
+@s: 
+@e: 
+@w: 
+@Returns: 
+
+
+<!-- ##### FUNCTION roam_sphere_merge_one ##### -->
+<para>
+
+</para>
+
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_sphere_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION roam_sphere_split_merge ##### -->
+<para>
+
+</para>
+
+@sphere: 
+@Returns: 
+
+
+<!-- ##### FUNCTION roam_sphere_split_one ##### -->
+<para>
+
+</para>
+
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_sphere_update_errors ##### -->
+<para>
+
+</para>
+
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_sphere_update_view ##### -->
+<para>
+
+</para>
+
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_triangle_add ##### -->
+<para>
+
+</para>
+
+@triangle: 
+@left: 
+@base: 
+@right: 
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_triangle_draw ##### -->
+<para>
+
+</para>
+
+@triangle: 
+
+
+<!-- ##### FUNCTION roam_triangle_draw_normal ##### -->
+<para>
+
+</para>
+
+@triangle: 
+
+
+<!-- ##### FUNCTION roam_triangle_free ##### -->
+<para>
+
+</para>
+
+@triangle: 
+
+
+<!-- ##### FUNCTION roam_triangle_new ##### -->
+<para>
+
+</para>
+
+@l: 
+@m: 
+@r: 
+@parent: 
+@Returns: 
+
+
+<!-- ##### FUNCTION roam_triangle_remove ##### -->
+<para>
+
+</para>
+
+@triangle: 
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_triangle_split ##### -->
+<para>
+
+</para>
+
+@triangle: 
+@sphere: 
+
+
+<!-- ##### FUNCTION roam_triangle_update_errors ##### -->
+<para>
+
+</para>
+
+@triangle: 
+@sphere: 
+
+

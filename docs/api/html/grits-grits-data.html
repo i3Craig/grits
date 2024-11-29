@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>grits-data</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch02.html" title="Data Access">
+<link rel="prev" href="ch02.html" title="Data Access">
+<link rel="next" href="grits-grits-http.html" title="grits-http">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="grits-grits-http.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#grits-grits-data.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#grits-grits-data.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="grits-grits-data"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="grits-grits-data.top_of_page"></a>grits-data</span></h2>
+<p>grits-data — Miscellaneous utilities for data access</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="grits-grits-data.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;glib/gstdio.h&gt;
+
+enum                <a class="link" href="grits-grits-data.html#GritsCacheType" title="enum GritsCacheType">GritsCacheType</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="grits-grits-data.html#GritsChunkCallback" title="GritsChunkCallback ()">*GritsChunkCallback</a>)               (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#goffset"><span class="type">goffset</span></a> cur</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#goffset"><span class="type">goffset</span></a> total</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">FILE</span> *              <a class="link" href="grits-grits-data.html#fopen-p" title="fopen_p ()">fopen_p</a>                             (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mode</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="grits-grits-data.description"></a><h2>Description</h2>
+<p>
+Various support routines for data access,
+these are mostly related to disk caching.
+</p>
+</div>
+<div class="refsect1">
+<a name="grits-grits-data.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GritsCacheType"></a><h3>enum GritsCacheType</h3>
+<pre class="programlisting">typedef enum {
+	GRITS_LOCAL,
+	GRITS_ONCE,
+	GRITS_UPDATE,
+	GRITS_REFRESH,
+} GritsCacheType;
+</pre>
+<p>
+Various methods for caching data
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="GRITS-LOCAL:CAPS"></a><span class="term"><code class="literal">GRITS_LOCAL</code></span></p></td>
+<td>Only return local files (for offline mode)
+</td>
+</tr>
+<tr>
+<td><p><a name="GRITS-ONCE:CAPS"></a><span class="term"><code class="literal">GRITS_ONCE</code></span></p></td>
+<td>Download the file only if it does not exist
+</td>
+</tr>
+<tr>
+<td><p><a name="GRITS-UPDATE:CAPS"></a><span class="term"><code class="literal">GRITS_UPDATE</code></span></p></td>
+<td>Update the file to be like the server
+</td>
+</tr>
+<tr>
+<td><p><a name="GRITS-REFRESH:CAPS"></a><span class="term"><code class="literal">GRITS_REFRESH</code></span></p></td>
+<td>Delete the existing file and fetch a new copy
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsChunkCallback"></a><h3>GritsChunkCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GritsChunkCallback)               (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#goffset"><span class="type">goffset</span></a> cur</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#goffset"><span class="type">goffset</span></a> total</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Function called when part of a file is fetched
+Used for updating progress bars, etc
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>path to the file which is being fetched</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cur</code></em> :</span></p></td>
+<td>current offset in the file</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>total</code></em> :</span></p></td>
+<td>total size of the file</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>the user_data argument passed to the function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="fopen-p"></a><h3>fopen_p ()</h3>
+<pre class="programlisting"><span class="returnvalue">FILE</span> *              fopen_p                             (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mode</code></em>);</pre>
+<p>
+Open a file, creating parent directories if needed
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>the path to the file to be opened.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>mode to open the file, see <code class="function">fopen</code> for details</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the opened file descriptor</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!-- ##### SECTION Title ##### -->
+GritsOpenGL
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GritsOpenGL ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT GritsOpenGLClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### FUNCTION grits_opengl_new ##### -->
+<para>
+
+</para>
+
+@plugins: 
+@prefs: 
+@Returns: 
+
+

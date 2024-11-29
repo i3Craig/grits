@@ -1,0 +1,55 @@
+<!-- ##### SECTION Title ##### -->
+GritsPoly
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GritsPoly ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT GritsPolyClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### FUNCTION grits_poly_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_poly_parse ##### -->
+<para>
+
+</para>
+
+@str: 
+@poly_sep: 
+@point_sep: 
+@coord_sep: 
+@Returns: 
+
+

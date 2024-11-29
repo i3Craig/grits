@@ -1,0 +1,220 @@
+<!-- ##### SECTION Title ##### -->
+GritsObject
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO GRITS_SKIP_CENTER ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_SKIP_HORIZON ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_SKIP_LOD ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_SKIP_STATE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GritsObject ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL GritsObject::button-press ##### -->
+<para>
+
+</para>
+
+@gritsobject: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL GritsObject::button-release ##### -->
+<para>
+
+</para>
+
+@gritsobject: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL GritsObject::clicked ##### -->
+<para>
+
+</para>
+
+@gritsobject: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL GritsObject::enter ##### -->
+<para>
+
+</para>
+
+@gritsobject: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL GritsObject::key-press ##### -->
+<para>
+
+</para>
+
+@gritsobject: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL GritsObject::key-release ##### -->
+<para>
+
+</para>
+
+@gritsobject: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL GritsObject::leave ##### -->
+<para>
+
+</para>
+
+@gritsobject: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### SIGNAL GritsObject::motion ##### -->
+<para>
+
+</para>
+
+@gritsobject: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### STRUCT GritsObjectClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+@draw: 
+@pick: 
+@hide: 
+
+<!-- ##### STRUCT GritsState ##### -->
+<para>
+
+</para>
+
+@picked: 
+@selected: 
+@clicking: 
+
+<!-- ##### MACRO grits_object_center ##### -->
+<para>
+
+</para>
+
+@object: 
+
+
+<!-- ##### FUNCTION grits_object_draw ##### -->
+<para>
+
+</para>
+
+@object: 
+@opengl: 
+
+
+<!-- ##### FUNCTION grits_object_event ##### -->
+<para>
+
+</para>
+
+@object: 
+@event: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_object_hide ##### -->
+<para>
+
+</para>
+
+@object: 
+@hidden: 
+
+
+<!-- ##### FUNCTION grits_object_pick ##### -->
+<para>
+
+</para>
+
+@object: 
+@opengl: 
+
+
+<!-- ##### FUNCTION grits_object_queue_draw ##### -->
+<para>
+
+</para>
+
+@object: 
+
+
+<!-- ##### FUNCTION grits_object_set_cursor ##### -->
+<para>
+
+</para>
+
+@object: 
+@cursor: 
+
+
+<!-- ##### FUNCTION grits_object_set_pointer ##### -->
+<para>
+
+</para>
+
+@object: 
+@event: 
+@selected: 
+@Returns: 
+
+

@@ -1,0 +1,940 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>roam</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch05.html" title="Utilities">
+<link rel="prev" href="grits-gpqueue.html" title="gpqueue">
+<link rel="next" href="ch06.html" title="Miscellaneous">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="grits-gpqueue.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="ch06.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#grits-roam.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#grits-roam.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="grits-roam"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="grits-roam.top_of_page"></a>roam</span></h2>
+<p>roam — Realtime Optimally-Adapting Meshes</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="grits-roam.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond">RoamDiamond</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             (<a class="link" href="grits-roam.html#RoamHeightFunc" title="RoamHeightFunc ()">*RoamHeightFunc</a>)                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+struct              <a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint">RoamPoint</a>;
+struct              <a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere">RoamSphere</a>;
+struct              <a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle">RoamTriangle</a>;
+struct              <a class="link" href="grits-roam.html#RoamView" title="struct RoamView">RoamView</a>;
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-diamond-add" title="roam_diamond_add ()">roam_diamond_add</a>                    (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="type">RoamDiamond</span></a> *diamond</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-diamond-merge" title="roam_diamond_merge ()">roam_diamond_merge</a>                  (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="type">RoamDiamond</span></a> *diamond</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="returnvalue">RoamDiamond</span></a> *       <a class="link" href="grits-roam.html#roam-diamond-new" title="roam_diamond_new ()">roam_diamond_new</a>                    (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *parent0</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *parent1</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-diamond-remove" title="roam_diamond_remove ()">roam_diamond_remove</a>                 (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="type">RoamDiamond</span></a> *diamond</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-diamond-update-errors" title="roam_diamond_update_errors ()">roam_diamond_update_errors</a>          (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="type">RoamDiamond</span></a> *diamond</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-point-add-triangle" title="roam_point_add_triangle ()">roam_point_add_triangle</a>             (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *point</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>);
+<a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="returnvalue">RoamPoint</span></a> *         <a class="link" href="grits-roam.html#roam-point-new" title="roam_point_new ()">roam_point_new</a>                      (<em class="parameter"><code><span class="type">double</span> lat</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> lon</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> elev</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-point-remove-triangle" title="roam_point_remove_triangle ()">roam_point_remove_triangle</a>          (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *point</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-point-update-height" title="roam_point_update_height ()">roam_point_update_height</a>            (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *point</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-point-update-projection" title="roam_point_update_projection ()">roam_point_update_projection</a>        (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *point</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamView" title="struct RoamView"><span class="type">RoamView</span></a> *view</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-sphere-draw" title="roam_sphere_draw ()">roam_sphere_draw</a>                    (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-sphere-draw-normals" title="roam_sphere_draw_normals ()">roam_sphere_draw_normals</a>            (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-sphere-free" title="roam_sphere_free ()">roam_sphere_free</a>                    (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="grits-roam.html#roam-sphere-get-intersect" title="roam_sphere_get_intersect ()">roam_sphere_get_intersect</a>           (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> all</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> s</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> e</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> w</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-sphere-merge-one" title="roam_sphere_merge_one ()">roam_sphere_merge_one</a>               (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="returnvalue">RoamSphere</span></a> *        <a class="link" href="grits-roam.html#roam-sphere-new" title="roam_sphere_new ()">roam_sphere_new</a>                     ();
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="grits-roam.html#roam-sphere-split-merge" title="roam_sphere_split_merge ()">roam_sphere_split_merge</a>             (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-sphere-split-one" title="roam_sphere_split_one ()">roam_sphere_split_one</a>               (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-sphere-update-errors" title="roam_sphere_update_errors ()">roam_sphere_update_errors</a>           (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-sphere-update-view" title="roam_sphere_update_view ()">roam_sphere_update_view</a>             (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-triangle-add" title="roam_triangle_add ()">roam_triangle_add</a>                   (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *left</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *base</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *right</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-triangle-draw" title="roam_triangle_draw ()">roam_triangle_draw</a>                  (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-triangle-draw-normal" title="roam_triangle_draw_normal ()">roam_triangle_draw_normal</a>           (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-triangle-free" title="roam_triangle_free ()">roam_triangle_free</a>                  (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>);
+<a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="returnvalue">RoamTriangle</span></a> *      <a class="link" href="grits-roam.html#roam-triangle-new" title="roam_triangle_new ()">roam_triangle_new</a>                   (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *l</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *m</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *r</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="type">RoamDiamond</span></a> *parent</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-triangle-remove" title="roam_triangle_remove ()">roam_triangle_remove</a>                (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-triangle-split" title="roam_triangle_split ()">roam_triangle_split</a>                 (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-roam.html#roam-triangle-update-errors" title="roam_triangle_update_errors ()">roam_triangle_update_errors</a>         (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="grits-roam.description"></a><h2>Description</h2>
+<p>
+A spherical version of the Realtime Optimally-Adapting Meshes (ROAM)
+algorithm is use for drawing the surface of the planet. ROAM provide a
+continuous level-of-detail mesh of the planet which is used by <a class="link" href="GritsOpenGL.html" title="GritsOpenGL"><span class="type">GritsOpenGL</span></a>
+when drawing surface textures for GritsTiles.
+</p>
+<p>
+This implementation of the ROAM algorithm is based on an octahedron as the
+base model.
+</p>
+</div>
+<div class="refsect1">
+<a name="grits-roam.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="RoamDiamond"></a><h3>struct RoamDiamond</h3>
+<pre class="programlisting">struct RoamDiamond {
+};
+</pre>
+<p>
+When two adjacent triangles are split, they, along with the four new child
+triangles, are added to a diamond which keeps track of them.
+</p>
+<p>
+Like triangles, diamond have an error associated with it. However, when a
+diamonds error is small enough it is "merged". That is, the diamond along
+with the child triangles is removed and the original two triangles triangles
+are added back into the mesh.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="RoamHeightFunc"></a><h3>RoamHeightFunc ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             (*RoamHeightFunc)                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lon</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+See <a class="link" href="GritsViewer.html#GritsHeightFunc" title="GritsHeightFunc ()"><span class="type">GritsHeightFunc</span></a>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat</code></em> :</span></p></td>
+<td>the latitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lon</code></em> :</span></p></td>
+<td>the longitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data passed to the function</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the elevation</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="RoamPoint"></a><h3>struct RoamPoint</h3>
+<pre class="programlisting">struct RoamPoint {
+};
+</pre>
+<p>
+Points are used as vertices for triangles. A single point my be shared among
+several triangles in order to conceive space and avoid recalculating
+projections. Points also store a lot of cached data. The normal vertex normal
+is the averaged surface normal of each associated triangle.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="RoamSphere"></a><h3>struct RoamSphere</h3>
+<pre class="programlisting">struct RoamSphere {
+};
+</pre>
+<p>
+The sphere keeps track of the triangles and diamonds in the mesh. 
+</p>
+<p>
+Originally the sphere consists of only 8 triangles forming a octahedron.
+These triangles are quickly split to create a smoother sphere.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="RoamTriangle"></a><h3>struct RoamTriangle</h3>
+<pre class="programlisting">struct RoamTriangle {
+};
+</pre>
+<p>
+Triangles are one of the key datatypes in ROAM. The surface is made up of
+triangles. Each triangle has an associated "error". When the surface is being
+updated after the view changes, each triangles error is updated. Afterwards
+the triangles with the most error are split int to triangles, each with a
+lower error than the original.
+</p>
+<p>
+Triangles store a lot of data about their location in the mesh so that they
+can be split and merged (unsplit) without having to recreate the mesh.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="RoamView"></a><h3>struct RoamView</h3>
+<pre class="programlisting">struct RoamView {
+	gdouble model[16];
+	gdouble proj[16];
+	gint view[4];
+	gint version;
+};
+</pre>
+<p>
+Stores projection matrices
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="RoamView.model"></a>model</code></em>[16];</span></p></td>
+<td>model view matrix</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="RoamView.proj"></a>proj</code></em>[16];</span></p></td>
+<td>projection matrix</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="RoamView.view"></a>view</code></em>[4];</span></p></td>
+<td>viewport matrix</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="RoamView.version"></a>version</code></em>;</span></p></td>
+<td>version</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-diamond-add"></a><h3>roam_diamond_add ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_diamond_add                    (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="type">RoamDiamond</span></a> *diamond</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Add a diamond into the sphere's pool of diamonds. It will be check for
+possible merges.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>diamond</code></em> :</span></p></td>
+<td>the diamond</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere to add the diamond to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-diamond-merge"></a><h3>roam_diamond_merge ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_diamond_merge                  (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="type">RoamDiamond</span></a> *diamond</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+"Merge" a diamond back into two parent triangles. The original two triangles
+are added back into the sphere and the four child triangles as well as the
+diamond are removed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>diamond</code></em> :</span></p></td>
+<td>the diamond</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-diamond-new"></a><h3>roam_diamond_new ()</h3>
+<pre class="programlisting"><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="returnvalue">RoamDiamond</span></a> *       roam_diamond_new                    (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *parent0</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *parent1</code></em>);</pre>
+<p>
+Create a diamond to store information about two split triangles.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent0</code></em> :</span></p></td>
+<td>a parent triangle</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent1</code></em> :</span></p></td>
+<td>a parent triangle</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new diamond</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-diamond-remove"></a><h3>roam_diamond_remove ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_diamond_remove                 (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="type">RoamDiamond</span></a> *diamond</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Remove a diamond from the sphere's pool of diamonds.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>diamond</code></em> :</span></p></td>
+<td>the diamond</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere to remove the diamond from</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-diamond-update-errors"></a><h3>roam_diamond_update_errors ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_diamond_update_errors          (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="type">RoamDiamond</span></a> *diamond</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Update the error value associated with a diamond. Called when the view
+changes.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>diamond</code></em> :</span></p></td>
+<td>the diamond</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere to use when updating errors</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-point-add-triangle"></a><h3>roam_point_add_triangle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_point_add_triangle             (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *point</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>);</pre>
+<p>
+Associating a triangle with a point and update it's vertex normal.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>point</code></em> :</span></p></td>
+<td>the point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>triangle</code></em> :</span></p></td>
+<td>the to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-point-new"></a><h3>roam_point_new ()</h3>
+<pre class="programlisting"><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="returnvalue">RoamPoint</span></a> *         roam_point_new                      (<em class="parameter"><code><span class="type">double</span> lat</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> lon</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> elev</code></em>);</pre>
+<p>
+Create a new point at the given locaiton
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat</code></em> :</span></p></td>
+<td>the latitude for the point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lon</code></em> :</span></p></td>
+<td>the longitude for the point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>elev</code></em> :</span></p></td>
+<td>the elevation for the point</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new point</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-point-remove-triangle"></a><h3>roam_point_remove_triangle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_point_remove_triangle          (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *point</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>);</pre>
+<p>
+Un-associating a triangle with a point and update it's vertex normal.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>point</code></em> :</span></p></td>
+<td>the point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>triangle</code></em> :</span></p></td>
+<td>the to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-point-update-height"></a><h3>roam_point_update_height ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_point_update_height            (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *point</code></em>);</pre>
+<p>
+Update the height (elevation) of a point based on the current height function
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>point</code></em> :</span></p></td>
+<td>the point</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-point-update-projection"></a><h3>roam_point_update_projection ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_point_update_projection        (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *point</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamView" title="struct RoamView"><span class="type">RoamView</span></a> *view</code></em>);</pre>
+<p>
+Updated the screen-space projection of a point.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>point</code></em> :</span></p></td>
+<td>the point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>the view to use when projecting the point</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-sphere-draw"></a><h3>roam_sphere_draw ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_sphere_draw                    (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Draw the sphere. Use for debugging.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-sphere-draw-normals"></a><h3>roam_sphere_draw_normals ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_sphere_draw_normals            (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Draw all the surface normal vectors for the sphere. Used while debugging.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-sphere-free"></a><h3>roam_sphere_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_sphere_free                    (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Free data associated with a sphere
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-sphere-get-intersect"></a><h3>roam_sphere_get_intersect ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             roam_sphere_get_intersect           (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> all</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> s</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> e</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> w</code></em>);</pre>
+<p>
+Lookup triangles withing the sphere that intersect a given lat-lon box.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>all</code></em> :</span></p></td>
+<td>TRUE if non-leaf triangle should be returned as well</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>the northern edge</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>the southern edge</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e</code></em> :</span></p></td>
+<td>the eastern edge</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>the western edge</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the list of intersecting triangles.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-sphere-merge-one"></a><h3>roam_sphere_merge_one ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_sphere_merge_one               (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Merge the diamond with the lowest error.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-sphere-new"></a><h3>roam_sphere_new ()</h3>
+<pre class="programlisting"><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="returnvalue">RoamSphere</span></a> *        roam_sphere_new                     ();</pre>
+<p>
+Create a new sphere
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the sphere</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-sphere-split-merge"></a><h3>roam_sphere_split_merge ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                roam_sphere_split_merge             (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Perform a predetermined number split-merge iterations.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the number splits and merges done</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-sphere-split-one"></a><h3>roam_sphere_split_one ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_sphere_split_one               (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Split the triangle with the greatest error.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-sphere-update-errors"></a><h3>roam_sphere_update_errors ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_sphere_update_errors           (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Update triangle and diamond errors in the sphere.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-sphere-update-view"></a><h3>roam_sphere_update_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_sphere_update_view             (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Recreate the sphere's view matrices based on the current OpenGL state.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-triangle-add"></a><h3>roam_triangle_add ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_triangle_add                   (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *left</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *base</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *right</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Add a triangle into the sphere's mesh using the given neighbors.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>triangle</code></em> :</span></p></td>
+<td>the triangle</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>left</code></em> :</span></p></td>
+<td>the left neighbor</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>base</code></em> :</span></p></td>
+<td>the base neighbor</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>right</code></em> :</span></p></td>
+<td>the right neighbor</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere to add the triangle to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-triangle-draw"></a><h3>roam_triangle_draw ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_triangle_draw                  (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>);</pre>
+<p>
+Draw the triangle. Use for debugging.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>triangle</code></em> :</span></p></td>
+<td>the triangle</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-triangle-draw-normal"></a><h3>roam_triangle_draw_normal ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_triangle_draw_normal           (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>);</pre>
+<p>
+Draw a normal vector for the triangle. Used while debugging.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>triangle</code></em> :</span></p></td>
+<td>the triangle</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-triangle-free"></a><h3>roam_triangle_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_triangle_free                  (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>);</pre>
+<p>
+Free data associated with a triangle
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>triangle</code></em> :</span></p></td>
+<td>the triangle</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-triangle-new"></a><h3>roam_triangle_new ()</h3>
+<pre class="programlisting"><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="returnvalue">RoamTriangle</span></a> *      roam_triangle_new                   (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *l</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *m</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamPoint" title="struct RoamPoint"><span class="type">RoamPoint</span></a> *r</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamDiamond" title="struct RoamDiamond"><span class="type">RoamDiamond</span></a> *parent</code></em>);</pre>
+<p>
+Create a new triangle consisting of three points.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>l</code></em> :</span></p></td>
+<td>the left point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m</code></em> :</span></p></td>
+<td>the middle point</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>the right point</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new triangle</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-triangle-remove"></a><h3>roam_triangle_remove ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_triangle_remove                (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Remove a triangle from a sphere's mesh.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>triangle</code></em> :</span></p></td>
+<td>the triangle</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere to remove the triangle from</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-triangle-split"></a><h3>roam_triangle_split ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_triangle_split                 (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Split a triangle into two child triangles and update the sphere.
+triangle
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>triangle</code></em> :</span></p></td>
+<td>the triangle</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="roam-triangle-update-errors"></a><h3>roam_triangle_update_errors ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                roam_triangle_update_errors         (<em class="parameter"><code><a class="link" href="grits-roam.html#RoamTriangle" title="struct RoamTriangle"><span class="type">RoamTriangle</span></a> *triangle</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-roam.html#RoamSphere" title="struct RoamSphere"><span class="type">RoamSphere</span></a> *sphere</code></em>);</pre>
+<p>
+Update the error value associated with a triangle. Called when the view
+changes.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>triangle</code></em> :</span></p></td>
+<td>the triangle</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sphere</code></em> :</span></p></td>
+<td>the sphere to use when updating errors</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

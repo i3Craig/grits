@@ -1,0 +1,174 @@
+<!-- ##### SECTION Title ##### -->
+GritsTile
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GritsTile ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT GritsTileClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### USER_FUNCTION GritsTileFreeFunc ##### -->
+<para>
+
+</para>
+
+@tile: 
+@user_data: 
+
+
+<!-- ##### USER_FUNCTION GritsTileLoadFunc ##### -->
+<para>
+
+</para>
+
+@tile: 
+@user_data: 
+
+
+<!-- ##### FUNCTION grits_tile_find ##### -->
+<para>
+
+</para>
+
+@root: 
+@lat: 
+@lon: 
+@Returns: 
+
+
+<!-- ##### MACRO grits_tile_foreach ##### -->
+<para>
+
+</para>
+
+@parent: 
+@child: 
+
+
+<!-- ##### MACRO grits_tile_foreach_index ##### -->
+<para>
+
+</para>
+
+@parent: 
+@x: 
+@y: 
+
+
+<!-- ##### FUNCTION grits_tile_free ##### -->
+<para>
+
+</para>
+
+@root: 
+@free_func: 
+@user_data: 
+
+
+<!-- ##### FUNCTION grits_tile_gc ##### -->
+<para>
+
+</para>
+
+@root: 
+@atime: 
+@free_func: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_tile_get_path ##### -->
+<para>
+
+</para>
+
+@child: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_tile_load_file ##### -->
+<para>
+
+</para>
+
+@tile: 
+@file: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_tile_load_pixbuf ##### -->
+<para>
+
+</para>
+
+@tile: 
+@pixbuf: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_tile_load_pixels ##### -->
+<para>
+
+</para>
+
+@tile: 
+@pixels: 
+@width: 
+@height: 
+@channels: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_tile_new ##### -->
+<para>
+
+</para>
+
+@parent: 
+@n: 
+@s: 
+@e: 
+@w: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_tile_update ##### -->
+<para>
+
+</para>
+
+@root: 
+@eye: 
+@res: 
+@width: 
+@height: 
+@load_func: 
+@user_data: 
+
+

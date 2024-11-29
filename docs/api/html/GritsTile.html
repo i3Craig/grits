@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GritsTile</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch03.html" title="Drawing Objects">
+<link rel="prev" href="GritsObject.html" title="GritsObject">
+<link rel="next" href="GritsMarker.html" title="GritsMarker">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GritsObject.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="GritsMarker.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GritsTile.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GritsTile.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GritsTile.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GritsTile"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GritsTile.top_of_page"></a>GritsTile</span></h2>
+<p>GritsTile — Latitude/longitude overlays</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GritsTile.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="GritsTile.html#GritsTile-struct" title="struct GritsTile">GritsTile</a>;
+struct              <a class="link" href="GritsTile.html#GritsTileClass" title="struct GritsTileClass">GritsTileClass</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="GritsTile.html#GritsTileFreeFunc" title="GritsTileFreeFunc ()">*GritsTileFreeFunc</a>)                (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="GritsTile.html#GritsTileLoadFunc" title="GritsTileLoadFunc ()">*GritsTileLoadFunc</a>)                (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a class="link" href="GritsTile.html" title="GritsTile"><span class="returnvalue">GritsTile</span></a> *         <a class="link" href="GritsTile.html#grits-tile-find" title="grits_tile_find ()">grits_tile_find</a>                     (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *root</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lon</code></em>);
+#define             <a class="link" href="GritsTile.html#grits-tile-foreach" title="grits_tile_foreach()">grits_tile_foreach</a>                  (parent,
+                                                         child)
+#define             <a class="link" href="GritsTile.html#grits-tile-foreach-index" title="grits_tile_foreach_index()">grits_tile_foreach_index</a>            (parent,
+                                                         x,
+                                                         y)
+<span class="returnvalue">void</span>                <a class="link" href="GritsTile.html#grits-tile-free" title="grits_tile_free ()">grits_tile_free</a>                     (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *root</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsTile.html#GritsTileFreeFunc" title="GritsTileFreeFunc ()"><span class="type">GritsTileFreeFunc</span></a> free_func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a class="link" href="GritsTile.html" title="GritsTile"><span class="returnvalue">GritsTile</span></a> *         <a class="link" href="GritsTile.html#grits-tile-gc" title="grits_tile_gc ()">grits_tile_gc</a>                       (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *root</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> atime</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsTile.html#GritsTileFreeFunc" title="GritsTileFreeFunc ()"><span class="type">GritsTileFreeFunc</span></a> free_func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="GritsTile.html#grits-tile-get-path" title="grits_tile_get_path ()">grits_tile_get_path</a>                 (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *child</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GritsTile.html#grits-tile-load-file" title="grits_tile_load_file ()">grits_tile_load_file</a>                (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GritsTile.html#grits-tile-load-pixbuf" title="grits_tile_load_pixbuf ()">grits_tile_load_pixbuf</a>              (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GritsTile.html#grits-tile-load-pixels" title="grits_tile_load_pixels ()">grits_tile_load_pixels</a>              (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *pixels</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> channels</code></em>);
+<a class="link" href="GritsTile.html" title="GritsTile"><span class="returnvalue">GritsTile</span></a> *         <a class="link" href="GritsTile.html#grits-tile-new" title="grits_tile_new ()">grits_tile_new</a>                      (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *parent</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> s</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> e</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> w</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GritsTile.html#grits-tile-update" title="grits_tile_update ()">grits_tile_update</a>                   (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *root</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-util.html#GritsPoint" title="struct GritsPoint"><span class="type">GritsPoint</span></a> *eye</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsTile.html#GritsTileLoadFunc" title="GritsTileLoadFunc ()"><span class="type">GritsTileLoadFunc</span></a> load_func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsTile.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GritsObject.html" title="GritsObject">GritsObject</a>
+         +----GritsTile
+</pre>
+</div>
+<div class="refsect1">
+<a name="GritsTile.description"></a><h2>Description</h2>
+<p>
+Each <a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> corresponds to a latitude/longitude box on the surface of
+the earth. When drawn, the <a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> renders an images associated with it
+to the surface of the earth. This is primarily used to draw ground overlays.
+</p>
+<p>
+Each GritsTile can be split into subtiles in order to draw higher resolution
+overlays. Pointers to subtitles are stored in the parent tile and a parent
+pointer is stored in each child.
+</p>
+<p>
+Each <a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> has a data filed which must be set by the user in order for
+the tile to be drawn. When used with GritsOpenGL the data must be an integer
+representing the OpenGL texture to use when drawing the tile.
+</p>
+</div>
+<div class="refsect1">
+<a name="GritsTile.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GritsTile-struct"></a><h3>struct GritsTile</h3>
+<pre class="programlisting">struct GritsTile;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsTileClass"></a><h3>struct GritsTileClass</h3>
+<pre class="programlisting">struct GritsTileClass {
+	GritsObjectClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsTileFreeFunc"></a><h3>GritsTileFreeFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GritsTileFreeFunc)                (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Used to free the image data associated with a tile
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tile</code></em> :</span></p></td>
+<td>the tile to free</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>data paseed to the function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GritsTileLoadFunc"></a><h3>GritsTileLoadFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GritsTileLoadFunc)                (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Used to load the image data associated with a tile. For GritsOpenGL, this
+function should store the OpenGL texture number in the tiles data field.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tile</code></em> :</span></p></td>
+<td>the tile to load</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>data paseed to the function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-find"></a><h3>grits_tile_find ()</h3>
+<pre class="programlisting"><a class="link" href="GritsTile.html" title="GritsTile"><span class="returnvalue">GritsTile</span></a> *         grits_tile_find                     (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *root</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lon</code></em>);</pre>
+<p>
+Locate the subtile with the highest resolution which contains the given
+lat/lon point.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
+<td>the root tile to search from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat</code></em> :</span></p></td>
+<td>target latitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lon</code></em> :</span></p></td>
+<td>target longitude</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the child tile</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-foreach"></a><h3>grits_tile_foreach()</h3>
+<pre class="programlisting">#define             grits_tile_foreach(parent, child)</pre>
+<p>
+Iterate over each imediate subtile of <em class="parameter"><code>parent</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>the <a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> to iterate over</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>a pointer to a <a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> to store the current subtile</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-foreach-index"></a><h3>grits_tile_foreach_index()</h3>
+<pre class="programlisting">#define             grits_tile_foreach_index(parent, x, y)</pre>
+<p>
+Iterate over each imediate subtile of <em class="parameter"><code>parent</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>the <a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> to iterate over</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>integer to store the x index of the current subtile</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>integer to store the y index of the current subtile</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-free"></a><h3>grits_tile_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_tile_free                     (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *root</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsTile.html#GritsTileFreeFunc" title="GritsTileFreeFunc ()"><span class="type">GritsTileFreeFunc</span></a> free_func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Recursively free a tile and all it's children.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
+<td>the root tile to free</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>free_func</code></em> :</span></p></td>
+<td>function used to free the image when a new tile is collected</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data to past to the free function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-gc"></a><h3>grits_tile_gc ()</h3>
+<pre class="programlisting"><a class="link" href="GritsTile.html" title="GritsTile"><span class="returnvalue">GritsTile</span></a> *         grits_tile_gc                       (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *root</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> atime</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsTile.html#GritsTileFreeFunc" title="GritsTileFreeFunc ()"><span class="type">GritsTileFreeFunc</span></a> free_func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Garbage collect old tiles. This removes and deallocate tiles that have not
+been used since before <em class="parameter"><code>atime</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
+<td>the root tile to start garbage collection at</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atime</code></em> :</span></p></td>
+<td>most recent time at which tiles will be kept</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>free_func</code></em> :</span></p></td>
+<td>function used to free the image when a new tile is collected</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data to past to the free function</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a pointer to the original tile, or NULL if it was garbage collected</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-get-path"></a><h3>grits_tile_get_path ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             grits_tile_get_path                 (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *child</code></em>);</pre>
+<p>
+Generate a string representation of a tiles location in a group of nested
+tiles. The string returned consists of groups of two digits separated by a
+delimiter. Each group of digits the tiles location with respect to it's
+parent tile.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>the tile to generate a path for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the path representing the tiles's location</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-load-file"></a><h3>grits_tile_load_file ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            grits_tile_load_file                (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *file</code></em>);</pre>
+<p>
+Load tile data from an image file
+This function is thread safe and my be called from outside the main thread.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tile</code></em> :</span></p></td>
+<td>the tile to load data into</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>path to an image file to load</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the image was loaded successfully</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-load-pixbuf"></a><h3>grits_tile_load_pixbuf ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            grits_tile_load_pixbuf              (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-load-pixels"></a><h3>grits_tile_load_pixels ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            grits_tile_load_pixels              (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *tile</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *pixels</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> channels</code></em>);</pre>
+<p>
+Load tile data from an in memory pixel buffer.
+</p>
+<p>
+This function is thread safe and my be called from outside the main thread.
+</p>
+<p>
+Ownership of the pixel buffer is passed to the tile, it should not be freed
+or modified after calling this function.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tile</code></em> :</span></p></td>
+<td>the tile to load data into</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixels</code></em> :</span></p></td>
+<td>buffered pixel data</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>width of the pixel buffer (in pixels)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>height of the pixel buffer (in pixels)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the image was loaded successfully</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-new"></a><h3>grits_tile_new ()</h3>
+<pre class="programlisting"><a class="link" href="GritsTile.html" title="GritsTile"><span class="returnvalue">GritsTile</span></a> *         grits_tile_new                      (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *parent</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> s</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> e</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> w</code></em>);</pre>
+<p>
+Create a tile associated with a particular latitude/longitude box.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>the parent for the tile, or NULL</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>the northern border of the tile</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>the southern border of the tile</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e</code></em> :</span></p></td>
+<td>the eastern border of the tile</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>the western border of the tile</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-tile-update"></a><h3>grits_tile_update ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_tile_update                   (<em class="parameter"><code><a class="link" href="GritsTile.html" title="GritsTile"><span class="type">GritsTile</span></a> *root</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-util.html#GritsPoint" title="struct GritsPoint"><span class="type">GritsPoint</span></a> *eye</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GritsTile.html#GritsTileLoadFunc" title="GritsTileLoadFunc ()"><span class="type">GritsTileLoadFunc</span></a> load_func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Recursively split a tile into children of appropriate detail. The resolution
+of the tile in pixels per meter is compared to the resolution which the tile
+is being drawn at on the screen. If the screen resolution is insufficient
+the tile is recursively subdivided until a sufficient resolution is
+achieved.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
+<td>the root tile to split</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eye</code></em> :</span></p></td>
+<td>the point the tile is viewed from, for calculating distances</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>a maximum resolution in meters per pixel to split tiles to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>width in pixels of the image associated with the tile</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>height in pixels of the image associated with the tile</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>load_func</code></em> :</span></p></td>
+<td>function used to load the image when a new tile is created</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data to past to the load function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

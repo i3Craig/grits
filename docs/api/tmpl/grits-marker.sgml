@@ -1,0 +1,99 @@
+<!-- ##### SECTION Title ##### -->
+GritsMarker
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO GRITS_MARKER_DMASK_ALL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_MARKER_DMASK_DIRECTIONAL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_MARKER_DMASK_ICON ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_MARKER_DMASK_LABEL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_MARKER_DMASK_NONE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GRITS_MARKER_DMASK_POINT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GritsMarker ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT GritsMarkerClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### FUNCTION grits_marker_icon_new ##### -->
+<para>
+
+</para>
+
+@label: 
+@filename: 
+@angle: 
+@flip: 
+@display_mask: 
+@Returns: 
+
+
+<!-- ##### FUNCTION grits_marker_new ##### -->
+<para>
+
+</para>
+
+@label: 
+@Returns: 
+
+

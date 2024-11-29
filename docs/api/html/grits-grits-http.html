@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>grits-http</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="Grits Reference Manual">
+<link rel="up" href="ch02.html" title="Data Access">
+<link rel="prev" href="grits-grits-data.html" title="grits-data">
+<link rel="next" href="grits-grits-wms.html" title="grits-wms">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="grits-grits-data.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Grits Reference Manual</th>
+<td><a accesskey="n" href="grits-grits-wms.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#grits-grits-http.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#grits-grits-http.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="grits-grits-http"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="grits-grits-http.top_of_page"></a>grits-http</span></h2>
+<p>grits-http — Hyper Text Transfer Protocol</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="grits-grits-http.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp">GritsHttp</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="grits-grits-http.html#grits-http-available" title="grits_http_available ()">grits_http_available</a>                (<em class="parameter"><code><a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> *http</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filter</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *cache</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *extract</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *index</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="grits-grits-http.html#grits-http-fetch" title="grits_http_fetch ()">grits_http_fetch</a>                    (<em class="parameter"><code><a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> *http</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *local</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-data.html#GritsCacheType" title="enum GritsCacheType"><span class="type">GritsCacheType</span></a> mode</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-data.html#GritsChunkCallback" title="GritsChunkCallback ()"><span class="type">GritsChunkCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="grits-grits-http.html#grits-http-free" title="grits_http_free ()">grits_http_free</a>                     (<em class="parameter"><code><a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> *http</code></em>);
+<a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="returnvalue">GritsHttp</span></a> *         <a class="link" href="grits-grits-http.html#grits-http-new" title="grits_http_new ()">grits_http_new</a>                      (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *prefix</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="grits-grits-http.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> is a small wrapper around libsoup to provide data access using
+the Hyper Text Transfer Protocol. Each <a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> should be associated with
+a particular server or dataset, all the files downloaded for this dataset
+will be cached together in $HOME/.cache/grits/
+</p>
+</div>
+<div class="refsect1">
+<a name="grits-grits-http.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GritsHttp"></a><h3>GritsHttp</h3>
+<pre class="programlisting">typedef struct {
+	SoupSession *soup;
+	gchar *prefix;
+	gboolean aborted;
+} GritsHttp;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-http-available"></a><h3>grits_http_available ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             grits_http_available                (<em class="parameter"><code><a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> *http</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filter</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *cache</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *extract</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *index</code></em>);</pre>
+<p>
+Look through the cache and an HTTP index page for a list of available files.
+The name of each file that matches the filter is added to the returned list.
+</p>
+<p>
+The list as well as the strings contained in it should be freed afterwards.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>http</code></em> :</span></p></td>
+<td>the <a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> connection to use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filter</code></em> :</span></p></td>
+<td>filter used to extract files from the index, or NULL
+For example: "href=\"([^"]*)\""</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
+<td>path to the local cache, or NULL to not search the cache</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extract</code></em> :</span></p></td>
+<td>regex used to extract filenames from the page, should match the
+filename as $1, or NULL to use /http="([^"])"/</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>path to the index page, or NULL to not search online</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the list of matching filenames</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-http-fetch"></a><h3>grits_http_fetch ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             grits_http_fetch                    (<em class="parameter"><code><a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> *http</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *local</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-data.html#GritsCacheType" title="enum GritsCacheType"><span class="type">GritsCacheType</span></a> mode</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="grits-grits-data.html#GritsChunkCallback" title="GritsChunkCallback ()"><span class="type">GritsChunkCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Fetch a file from the cache. Whether the file is actually loaded from the
+remote server depends on the value of <em class="parameter"><code>mode</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>http</code></em> :</span></p></td>
+<td>the <a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> connection to use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>the URI to fetch</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>local</code></em> :</span></p></td>
+<td>the local name to give to the file</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>the update type to use when fetching data</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>callback to call when a chunk of data is received</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data to pass to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The local path to the complete file</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-http-free"></a><h3>grits_http_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grits_http_free                     (<em class="parameter"><code><a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> *http</code></em>);</pre>
+<p>
+Frees resources used by <em class="parameter"><code>http</code></em> and cancels any pending requests.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>http</code></em> :</span></p></td>
+<td>the <a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> to free</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grits-http-new"></a><h3>grits_http_new ()</h3>
+<pre class="programlisting"><a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="returnvalue">GritsHttp</span></a> *         grits_http_new                      (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *prefix</code></em>);</pre>
+<p>
+Create a new <a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a> for the given prefix
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefix</code></em> :</span></p></td>
+<td>The prefix in the cache to store the downloaded files.
+For example: * "/nexrad/level2/".</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="grits-grits-http.html#GritsHttp" title="GritsHttp"><span class="type">GritsHttp</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!-- ##### SECTION Title ##### -->
+GritsCallback
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GritsCallback ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT GritsCallbackClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### USER_FUNCTION GritsCallbackFunc ##### -->
+<para>
+
+</para>
+
+@callback: 
+@opengl: 
+@user_data: 
+
+
+<!-- ##### FUNCTION grits_callback_new ##### -->
+<para>
+
+</para>
+
+@draw_cb: 
+@user_data: 
+@Returns: 
+
+
