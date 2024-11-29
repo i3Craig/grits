@@ -44,8 +44,8 @@ static void sky_expose(GritsCallback *sky, GritsOpenGL *opengl, gpointer _env)
 	grits_viewer_get_location(env->viewer, &lat, &lon, &elev);
 
 	/* Misc */
-	gdouble rg   = MAX(0, 1-(elev/40000));
-	gdouble blue = MAX(0, 1-(elev/100000));
+	gdouble rg   = MAX(0, 1-(elev/4000));
+	gdouble blue = MAX(0, 1-(elev/10000));
 	glClearColor(MIN(0.4,rg), MIN(0.4,rg), MIN(1,blue), 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
@@ -59,7 +59,7 @@ static void sky_expose(GritsCallback *sky, GritsOpenGL *opengl, gpointer _env)
 
 	gdouble ds  = EARTH_R+elev;     // distance to self
 	gdouble da  = EARTH_R+300000;   // distance to top of atmosphere
-	gdouble dg  = EARTH_R-100000;   // distance to top of atmosphere
+	gdouble dg  = EARTH_R;   // distance to where the ground is rendered if no basemap is rendered.
 	gdouble ang = acos(EARTH_R/ds); // angle to horizon
 	ang = MAX(ang,0.1);
 
