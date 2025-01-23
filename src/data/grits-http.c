@@ -91,6 +91,7 @@ struct _CacheInfo {
 	gchar *path;
 	GritsChunkCallback callback;
 	gpointer user_data;
+	gulong iBytesWeDownloadedSoFar;	/* Stores the number of bytes we downloaded from the server for the current request so far. */
 };
 struct _CacheInfoMain {
 	gchar *path;
@@ -124,8 +125,27 @@ static void _chunk_cb(SoupMessage *message, SoupBuffer *chunk, gpointer _info)
 		return;
 	}
 
+	/* If this is the first chunk that we received and we got a 200 code from the server, then we should not append to the file.
+	 * Instead, we must reset the file pointer to the beginning of the file.
+	 * The NEXRAD level2 file server sometimes returns HTTP 200 and the entire contents of the file even if we requested only content after the end of the file.
+	 * This type of request is normal if we already downloaded the file.
+	 * The idea is that we want to ask the server if there is any new data added to the file and download it if there is, so we don't redownload the entire file.
+	 * However, as stated above, sometimes the server ignores our request and responds with the entire file and a code 200. Normall, we should get an HTTP 206
+	 * response if we are only receiving a partial download or a 416 if there is no more content to download.
+	 */
+	if(message->status_code == SOUP_STATUS_OK
+		&& info->iBytesWeDownloadedSoFar == 0){
+		g_debug("grits-http.c _chunck_cb: The server ignored our request for a partial download. We will overwrite the existing cache file, rather than append to it.");
+		/* Reopen the file in write mode so the existing file is cleared and we can write to an empty file. */
+		freopen(NULL, "w+b", info->fp);
+	}
+
+
 	if (!fwrite(chunk->data, chunk->length, 1, info->fp))
 		g_error("GritsHttp: _chunk_cb - Unable to write data");
+	
+	/* Add on the bytes from this chunk */
+	info->iBytesWeDownloadedSoFar += chunk->length;
 
 	if (info->callback) {
 		struct _CacheInfoMain *infomain = g_new0(struct _CacheInfoMain, 1);
@@ -170,7 +190,7 @@ gchar *grits_http_fetch(GritsHttp *http, const gchar *uri, const char *local,
 	if (mode == GRITS_REFRESH)
 		g_remove(path);
 
-	/* Do the cache if necessasairy */
+	/* Do the cache if necessary */
 	if (!(mode == GRITS_ONCE && g_file_test(path, G_FILE_TEST_EXISTS)) &&
 			mode != GRITS_LOCAL) {
 		g_debug("GritsHttp: fetch - Caching file %s", local);
@@ -192,6 +212,7 @@ gchar *grits_http_fetch(GritsHttp *http, const gchar *uri, const char *local,
 			.path      = path,
 			.callback  = callback,
 			.user_data = user_data,
+			.iBytesWeDownloadedSoFar = 0,
 		};
 
 		/* Download the file */
@@ -199,6 +220,7 @@ gchar *grits_http_fetch(GritsHttp *http, const gchar *uri, const char *local,
 		if (message == NULL)
 			g_error("message is null, cannot parse uri");
 		g_signal_connect(message, "got-chunk", G_CALLBACK(_chunk_cb), &info);
+		g_debug("ftell(fp): %li, uri: %s, local: %s", ftell(fp), uri, local);
 		//if (ftell(fp) > 0)
 			soup_message_headers_set_range(message->request_headers, ftell(fp), -1);
 		if (mode == GRITS_REFRESH)
@@ -206,6 +228,7 @@ gchar *grits_http_fetch(GritsHttp *http, const gchar *uri, const char *local,
 					"Cache-Control", "max-age=0");
 		soup_session_send_message(http->soup, message);
 
+		g_debug("message->status_code: %i", message->status_code);
 		/* Close file */
 		fclose(fp);
 		if (path != part) {

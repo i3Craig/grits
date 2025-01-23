@@ -29,6 +29,7 @@
 #include <config.h>
 #include <math.h>
 #include <glib.h>
+#include <stdatomic.h>
 #include "gtkgl.h"
 #include "grits-volume.h"
 
@@ -52,9 +53,15 @@ static void draw_points(VolGrid *grid, gdouble level)
 	glEnd();
 }
 
-static void draw_iso(GList *tris)
+static void draw_iso(GritsVolume* volume)
 {
 	g_debug("GritsVolume: draw_iso");
+
+	GList* tris = volume->tris;
+
+	/* Update the tris in use for drawing flag so we don't attempt to delete this array if we are updating the tris list in another thread */
+	volume->trisInUseForDrawing = tris;
+
 	glDisable(GL_CULL_FACE);
 	glBegin(GL_TRIANGLES);
 	for (GList *cur = tris; cur; cur = cur->next) {
@@ -84,6 +91,8 @@ static void draw_iso(GList *tris)
 		glNormal3dv((double*)&n[2]); glVertex3dv((double*)&c[2]);
 	}
 	glEnd();
+
+	volume->trisInUseForDrawing = NULL;
 }
 
 static void draw(GritsObject *_volume, GritsOpenGL *opengl)
@@ -106,7 +115,7 @@ static void draw(GritsObject *_volume, GritsOpenGL *opengl)
 		dif[3] = 1;
 		glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, amb);
 		glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, dif);
-		draw_iso(volume->tris);
+		draw_iso(volume);
 		break;
 	case GRITS_VOLUME_POINTS:
 		draw_points(volume->grid, volume->level);
@@ -118,11 +127,23 @@ static void draw(GritsObject *_volume, GritsOpenGL *opengl)
 gboolean update_iso(gpointer _volume)
 {
 	GritsVolume *volume = _volume;
-	if (volume->tris) {
-		g_list_foreach(volume->tris, (GFunc)vol_triangle_free, NULL);
-		g_list_free(volume->tris);
+
+	/* Generate new isosurface and point volume->tris to it atomically, then point oldTris to the old version of volume->tris so we can clean it up.
+	 * This allows us to generate a new isosurface in a non-UI thread and safely swap it over. */
+	GList* oldTris = g_atomic_pointer_exchange(&volume->tris, marching_cubes(volume->grid, volume->level));
+
+	if (oldTris) {
+		/* Spin lock wait for the drawing to complete so we can delete this array.
+		 * Drawing should be very fast and the chance of us trying to delete the list while drawing is very small, but just in case,
+		 * we will spin lock wait for the list to be no longer in use so we can delete it.
+		 * We use atomic_load on volume->trisInUseForDrawing since without it, the compiler would read the value once and cache it,
+		 * causing the loop below to get stuck.
+		 */
+		while(oldTris == atomic_load(&volume->trisInUseForDrawing)){};
+
+		g_list_foreach(oldTris, (GFunc)vol_triangle_free, NULL);
+		g_list_free(oldTris);
 	}
-	volume->tris = marching_cubes(volume->grid, volume->level);
 	volume->update_id = 0;
 	grits_object_queue_draw(GRITS_OBJECT(volume));
 	return FALSE;
@@ -136,6 +157,11 @@ void grits_volume_set_level(GritsVolume *volume, gdouble level)
 	volume->level = level;
 	if (!volume->update_id)
 		volume->update_id = g_idle_add(update_iso, volume);
+}
+
+void grits_volume_set_level_sync(GritsVolume *volume, gdouble level){
+	volume->level = level;
+	update_iso(volume);
 }
 
 GritsVolume *grits_volume_new(VolGrid *grid)

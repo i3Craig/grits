@@ -57,6 +57,7 @@ struct _GritsVolume {
 	/* Internal */
 	VolGrid *grid;
 	GList   *tris;
+	GList	*trisInUseForDrawing; /* The drawing function points this pointer at the tris list it is using for drawing. Thus, if the function to update the list tries to cleanup the array, it will know to wait until drawing is complete. */
 	gdouble  level;
 	guint8   color[4];
 	gint     update_id;
@@ -70,6 +71,8 @@ GType grits_volume_get_type(void);
 
 /* Methods */
 void grits_volume_set_level(GritsVolume *volume, gdouble level);
+/* Same logic as grits_volume_set_level, but runs in the calling thread and returns when complete, instead of running on the UI thread asynchronously. */
+void grits_volume_set_level_sync(GritsVolume *volume, gdouble level);
 
 GritsVolume *grits_volume_new(VolGrid *grid);
 

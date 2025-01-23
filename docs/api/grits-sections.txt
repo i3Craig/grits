@@ -376,6 +376,7 @@ GritsVolumeDisp
 GritsVolumeProj
 grits_volume_new
 grits_volume_set_level
+grits_volume_set_level_sync
 <SUBSECTION Standard>
 GRITS_IS_VOLUME
 GRITS_IS_VOLUME_CLASS

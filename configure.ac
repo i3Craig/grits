@@ -1,9 +1,9 @@
-m4_define([grits_release], [0.8.1])
+m4_define([grits_release], [0.9.0])
 m4_define([grits_version], [6:1:1])
 m4_define([grits_subdir],  [grits5])
 
 # Init and options
-AC_INIT([grits], [grits_release], [andy753421@gmail.com])
+AC_INIT([grits],[grits_release],[andy753421@gmail.com])
 AM_INIT_AUTOMAKE([-Wall -Werror -Wno-portability foreign])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
@@ -20,7 +20,7 @@ lt_cv_sys_lib_dlsearch_path_spec="/lib /lib32 /lib64 /usr/lib /usr/lib32 /usr/li
 
 # Check for required programs
 AC_PROG_CC
-AC_PROG_LIBTOOL
+LT_INIT
 DOLT
 PKG_PROG_PKG_CONFIG
 GTK_DOC_CHECK(1.9)

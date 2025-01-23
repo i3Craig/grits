@@ -438,7 +438,7 @@ gboolean grits_viewer_get_offline(GritsViewer *viewer)
  * grits_viewer_queue_draw:
  * @viewer: the viewer
  *
- * Causes the viewer to redraw the screen. This has the safe effect as
+ * Causes the viewer to redraw the screen. This has the same effect as
  * gtk_widget_queue_draw, but is thread safe, and probably faster.
  */
 void grits_viewer_queue_draw(GritsViewer *viewer)
