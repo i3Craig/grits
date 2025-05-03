@@ -10,7 +10,7 @@ used by other programs, rather than providing it's own user interface.
 For more information, see the homepage:
   - http://pileus.org/grits
 
-### SYSTEM REQUIREMENTS
+#### SYSTEM REQUIREMENTS
 - OpenGL 2.1+ or OpenGL ES 2.1+
   Note: Systems with OpenGL 3.1 or newer will perform better.
 
