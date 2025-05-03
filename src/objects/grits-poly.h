@@ -22,6 +22,8 @@
 #include <glib-object.h>
 #include <cairo.h>
 #include <objects/grits-object.h>
+#include <GL/glew.h>
+#include <limits.h>
 
 /* GritsPoly */
 #define GRITS_TYPE_POLY            (grits_poly_get_type())
@@ -31,8 +33,22 @@
 #define GRITS_IS_POLY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE   ((klass), GRITS_TYPE_POLY))
 #define GRITS_POLY_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),   GRITS_TYPE_POLY, GritsPolyClass))
 
+
+/* Stores the special value we put in the iOutlineEbo (index array) to tell OpenGL to not connect two points in the array.
+ * This allows us to draw multiple independent polygons in the same draw call, improving performance.
+ * But, this restricts us to using OpenGL 3.1+.
+ */
+#define GRITS_POLY_PRIMITIVE_RESTART_INDEX_VALUE 0xFFFFFFFF
+
 typedef struct _GritsPoly      GritsPoly;
 typedef struct _GritsPolyClass GritsPolyClass;
+
+
+typedef struct __attribute__((packed)) {
+	GLdouble x;
+	GLdouble y;
+	GLdouble z;
+} Vertex;
 
 struct _GritsPoly {
 	GritsObject  parent_instance;
@@ -40,7 +56,18 @@ struct _GritsPoly {
 	gdouble      color[4];
 	gdouble      border[4];
 	gdouble      width;
-	guint        list[2];
+
+	/* Vertex Buffer object (VBO - points in polygon), Element Array Buffer (EBO - array of indices into the VBO for how to connect lines in the polygon), and Vertex Array Object (VAO - allows us to bind the VBO and EBO in one call). */
+	GLuint       iOutlineVbo;
+	GLuint       iOutlineEbo;
+	GLuint       iOutlineVao;
+	/* The number of elements in the EBO array */
+	GLuint       iOutlineIndicesLength;
+
+	/* Stores the pointer to the OpenGL Vertex Buffer Object that stores the tessellation of the polygon (as vertices of triangles) */
+	GLuint       iTessVbo;
+	/* Stores the number of vertices in the tessellation */
+	guint        iTessVertexCount;
 };
 
 struct _GritsPolyClass {

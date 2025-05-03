@@ -14850,7 +14850,7 @@ GL_CFLAGS="-DSYS_$SYS"
 case "$SYS" in
 	"WIN") GL_LIBS="-lglu32 -lopengl32" ;;
 	"MAC") GL_LIBS="-framework OpenGL" ;;
-	"X11") GL_LIBS="-lX11 -lGL -lGLU" ;;
+	"X11") GL_LIBS="-lX11 -lGL -lGLU -lGLEW" ;;
 esac
 
 

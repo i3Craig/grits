@@ -24,10 +24,11 @@
  * algorithm for updating surface mesh the planet. The only thing GritsOpenGL
  * can actually render on it's own is a wireframe of a sphere.
  *
- * GritsOpenGL requires (at least) OpenGL 2.0.
+ * GritsOpenGL requires (at least) OpenGL 2.1 / OpenGL ES 2.1.
  */
 
 #include <config.h>
+#include <GL/glew.h>
 #include <math.h>
 #include <string.h>
 #include <gdk/gdkkeysyms.h>
@@ -112,7 +113,7 @@ static void _set_settings(GritsOpenGL *opengl)
 	glEnable(GL_LIGHT0);
 	glEnable(GL_LIGHTING);
 
-	glEnable(GL_LINE_SMOOTH);
+	//glEnable(GL_LINE_SMOOTH);
 
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_COLOR_MATERIAL);
@@ -295,8 +296,11 @@ static gboolean run_mouse_move(GritsOpenGL *opengl, GdkEventMotion *event)
 
 static gboolean on_motion_notify(GritsOpenGL *opengl, GdkEventMotion *event, gpointer _)
 {
+	/* The mouse moved. Store the latest event for processing. If we are not currently (already) dragging / moving the map, then queue a redraw */
 	opengl->mouse_queue = *event;
-	grits_viewer_queue_draw(GRITS_VIEWER(opengl));
+	if(opengl->eMouseMode != DRAGGING){
+		grits_viewer_queue_draw(GRITS_VIEWER(opengl));
+	}
 	return FALSE;
 }
 
@@ -368,8 +372,11 @@ static gboolean on_expose(GritsOpenGL *opengl, gpointer data, gpointer _)
 		return run_mouse_move(opengl, &(GdkEventMotion){});
 
 	if (opengl->mouse_queue.type != GDK_NOTHING) {
-		run_mouse_move(opengl, &opengl->mouse_queue);
-		opengl->mouse_queue.type = GDK_NOTHING;
+		/* If there is a mouse move event to process and we are not currently moving the map, then compute what is under the mouse pointer. This helps improve performace when dragging the map. */
+		if(opengl->eMouseMode != DRAGGING){
+			run_mouse_move(opengl, &opengl->mouse_queue);
+			opengl->mouse_queue.type = GDK_NOTHING;
+		}
 	}
 
 	gtk_gl_begin(GTK_WIDGET(opengl));
@@ -427,15 +434,49 @@ static gboolean on_key_press(GritsOpenGL *opengl, GdkEventKey *event, gpointer _
 
 static gboolean on_chained_event(GritsOpenGL *opengl, GdkEvent *event, gpointer _)
 {
-	for (GList *i = opengl->objects->tail; i; i = i->prev) {
-		struct RenderLevel *level = i->data;
-		for (GList *j = level->unsorted.next; j; j = j->next)
-			if (grits_object_event(j->data, event))
-				return TRUE;
-		for (GList *j = level->sorted.next;   j; j = j->next)
-			if (grits_object_event(j->data, event))
-				return TRUE;
+	/* Mouse modved, mouse button pressed / released, or key pressed / released. If we are moving the map, don't run any of this logic. This reduces system load whem moving the map.
+	 * When the user is done dragging, rerun the picking logic so that we update what is under the mouse in case it changed.
+	 */
+	if(opengl->eMouseMode != DRAGGING){
+		for (GList *i = opengl->objects->tail; i; i = i->prev) {
+			struct RenderLevel *level = i->data;
+			for (GList *j = level->unsorted.next; j; j = j->next)
+				if (grits_object_event(j->data, event))
+					return TRUE;
+			for (GList *j = level->sorted.next;   j; j = j->next)
+				if (grits_object_event(j->data, event))
+					return TRUE;
+		}
 	}
+
+	if(event->type == GDK_BUTTON_PRESS
+		&& opengl->eMouseMode == NONE){
+		/* Mouse button pressed down - user might drag the map */
+		opengl->eMouseMode = DOWN;
+		opengl->iDragStartX = -1;
+	} else if(event->type == GDK_MOTION_NOTIFY
+		&& opengl->eMouseMode == DOWN){
+		GdkEventMotion* objMotionEvent = (GdkEventMotion*) event;
+		if(opengl->iDragStartX == -1){
+			opengl->iDragStartX = objMotionEvent->x;
+			opengl->iDragStartY = objMotionEvent->y;
+		}
+		gint iDragX = opengl->iDragStartX - objMotionEvent->x;
+		gint iDragY = opengl->iDragStartY - objMotionEvent->y;
+		gint iDragDistanceSquare = ABS(iDragX) + ABS(iDragY);
+
+		/* Mouse moved (at least a few pixels) after it was pressed down. The user is now dragging the map.
+		 * We have to check that there was at least some movement, as touch screens send mosue move events with no movement for a single tap.
+		 */
+		if(iDragDistanceSquare > 1){
+			opengl->eMouseMode = DRAGGING;
+		}
+	} else if(event->type == GDK_BUTTON_RELEASE){
+		/* A mouse button was released. The user is no longer dragging the map. Update what the mouse is pointing at. */
+		opengl->eMouseMode = NONE;
+		grits_viewer_queue_draw(GRITS_VIEWER(opengl));
+	}
+
 	return FALSE;
 }
 
@@ -467,6 +508,11 @@ static void on_realize(GritsOpenGL *opengl, gpointer _)
 
 	/* Re-queue resize incase configure was triggered before realize */
 	gtk_widget_queue_resize(GTK_WIDGET(opengl));
+
+	GLenum eGlewError = glewInit();
+	if(eGlewError != GLEW_OK){
+		g_error("We were unable to initialize GLEW. Check that OpenGL is supported on this system. Details: %s", glewGetErrorString(eGlewError));
+	}
 }
 
 /*********************

@@ -34,6 +34,12 @@ typedef struct _GritsOpenGLClass GritsOpenGLClass;
 #include "grits-viewer.h"
 #include "roam.h"
 
+typedef enum{
+	NONE, /* Mouse not dragging map */
+	DOWN, /* Mouse button is clicked odwn to start dragging, but has not moved yet */
+	DRAGGING /* Mouse button was clicked down and has moved, dragging the map in some way */
+} GritsOpenglMouseMode;
+
 struct _GritsOpenGL {
 	GritsViewer parent_instance;
 
@@ -43,6 +49,12 @@ struct _GritsOpenGL {
 	RoamSphere *sphere;
 	GMutex      sphere_lock;
 	GdkEventMotion mouse_queue;
+
+	/* Stores the current mouse mode, allowing us to determine if the mouse is dragging an object just moving around. */
+	GritsOpenglMouseMode eMouseMode;
+	/* Stores the starting point (X and Y) of the mouse drag event, allowing us to determine how far the mouse moved after clicking a button down */
+	gint        iDragStartX;
+	gint        iDragStartY;
 
 	/* for testing */
 	gboolean    wireframe;
