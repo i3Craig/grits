@@ -2,11 +2,11 @@
 ## DO NOT EDIT - This file generated from ./build-aux/ltmain.in
 ##               by inline-source v2019-02-19.15
 
-# libtool (GNU libtool) 2.5.4.1-baa1-dirty
+# libtool (GNU libtool) 2.5.4.23-5b58-dirty
 # Provide generalized library-building support services.
 # Written by Gordon Matzigkeit <gord@gnu.ai.mit.edu>, 1996
 
-# Copyright (C) 1996-2019, 2021-2024 Free Software Foundation, Inc.
+# Copyright (C) 1996-2019, 2021-2025 Free Software Foundation, Inc.
 # This is free software; see the source for copying conditions.  There is NO
 # warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
@@ -31,8 +31,8 @@
 
 PROGRAM=libtool
 PACKAGE=libtool
-VERSION=2.5.4.1-baa1-dirty
-package_revision=2.5.4.1
+VERSION=2.5.4.23-5b58-dirty
+package_revision=2.5.4.23
 
 
 ## ------ ##
@@ -2215,7 +2215,7 @@ func_version ()
 # End:
 
 # Set a version string.
-scriptversion='(GNU libtool) 2.5.4.1-baa1-dirty'
+scriptversion='(GNU libtool) 2.5.4.23-5b58-dirty'
 
 # func_version
 # ------------
@@ -2298,6 +2298,22 @@ func_help ()
 
     func_usage_message
     $ECHO "$long_help_message
+
+If a TAG is supplied, it must use one of the tag names below:
+
+    Tag Name        Language Name
+       CC              C
+       CXX             C++
+       OBJC            Objective-C
+       OBJCXX          Objective-C++
+       GCJ             Java
+       F77             Fortran 77
+       FC              Fortran
+       GO              Go
+       RC              Windows Resource
+
+If you do not see a tag name associated with your programming language, then
+you are using a compiler that $progname does not support.
 
 MODE must be one of the following:
 
@@ -2723,7 +2739,7 @@ libtool_validate_options ()
     case $host_os in
       # Solaris2 added to fix http://debbugs.gnu.org/cgi/bugreport.cgi?bug=16452
       # see also: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=59788
-      cygwin* | mingw* | windows* | pw32* | cegcc* | solaris2* | os2*)
+      cygwin* | mingw* | windows* | pw32* | cegcc* | solaris2* | os2* | *linux*)
         # don't eliminate duplications in $postdeps and $predeps
         opt_duplicate_compiler_generated_deps=:
         ;;
@@ -2999,8 +3015,9 @@ func_infer_tag ()
 	# was found and let the user know that the "--tag" command
 	# line option must be used.
 	if test -z "$tagname"; then
-	  func_echo "unable to infer tagged configuration"
-	  func_fatal_error "specify a tag with '--tag'"
+	  func_echo "unable to infer tagged configuration with compiler."
+	  func_echo "Possible use of unsupported compiler."
+	  func_fatal_error "specify a tag with '--tag'. For more information, try '$progname --help'."
 #	else
 #	  func_verbose "using $tagname tagged configuration"
 	fi
@@ -4529,7 +4546,7 @@ func_mode_install ()
 	  prev=$arg
 	fi
 	;;
-      -g | -m | -o)
+      -g | -m | -o | -S | -t)
 	prev=$arg
 	;;
       -s)
@@ -6374,7 +6391,7 @@ check_executable (const char *path)
   if ((!path) || (!*path))
     return 0;
 
-  if ((stat (path, &st) >= 0)
+  if ((stat (path, &st) >= 0) && !S_ISDIR (st.st_mode)
       && (st.st_mode & (S_IXUSR | S_IXGRP | S_IXOTH)))
     return 1;
   else
@@ -7525,8 +7542,6 @@ func_mode_link ()
 	*-*-cygwin* | *-*-mingw* | *-*-windows* | *-*-pw32* | *-*-os2* | *-*-darwin* | *-cegcc*)
 	  # The PATH hackery in wrapper scripts is required on Windows
 	  # and Darwin in order for the loader to find any dlls it needs.
-	  func_warning "'-no-install' is ignored for $host"
-	  func_warning "assuming '-no-fast-install' instead"
 	  fast_install=no
 	  ;;
 	*) no_install=yes ;;
@@ -9312,29 +9327,21 @@ func_mode_link ()
 	esac
 
 	# Check that each of the things are valid numbers.
-	case $current in
-	0|[1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9]|[1-9][0-9][0-9][0-9][0-9]) ;;
-	*)
-	  func_error "CURRENT '$current' must be a nonnegative integer"
+	if echo "$current" | $EGREP -v '(^0$)|(^[1-9]$)|(^[1-9][0-9]{1,4}$)' > /dev/null; then
+	  func_error "CURRENT '$current' must be a nonnegative integer and <= 5 digits"
 	  func_fatal_error "'$vinfo' is not valid version information"
-	  ;;
-	esac
+	fi
 
-	case $revision in
-	0|[1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9]|[1-9][0-9][0-9][0-9][0-9]) ;;
-	*)
-	  func_error "REVISION '$revision' must be a nonnegative integer"
+	# Currently limiting revision length by Unix epoch time in nanoseconds.
+	if echo "$revision" | $EGREP -v '(^0$)|(^[1-9]$)|(^[1-9][0-9]{1,18}$)' > /dev/null; then
+	  func_error "REVISION '$revision' must be a nonnegative integer and <= 19 digits"
 	  func_fatal_error "'$vinfo' is not valid version information"
-	  ;;
-	esac
+	fi
 
-	case $age in
-	0|[1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9]|[1-9][0-9][0-9][0-9][0-9]) ;;
-	*)
-	  func_error "AGE '$age' must be a nonnegative integer"
+	if echo "$age" | $EGREP -v '(^0$)|(^[1-9]$)|(^[1-9][0-9]{1,4}$)' > /dev/null; then
+	  func_error "AGE '$age' must be a nonnegative integer and <= 5 digits"
 	  func_fatal_error "'$vinfo' is not valid version information"
-	  ;;
-	esac
+	fi
 
 	if test "$age" -gt "$current"; then
 	  func_error "AGE '$age' is greater than the current interface number '$current'"
