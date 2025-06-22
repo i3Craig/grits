@@ -19,3 +19,6 @@ This repo is a clone of http://pileus.org/grits/files/grits-0.8.1.tar.gz with up
 - November 2024 - Updated ground level rendering so that the state borders don't look like they are floating in the sky.
 - January 2025 - Added the grits_volume_set_level_sync function so the 3D radar volume doesn't "glitch" when the ISO level is adjusted during the animation.
 - May 2025 - Added support for OpenGL ES 2.1+, improved performance (FPS) when moving the map around.
+
+#### Troubleshooting:
+If the build fails, try reconfiguring automake tooling by running `autoreconf -ivf` in the root directory of this repo. Then, try cleaning (`make clean`) and building again (`make`).
